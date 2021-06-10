@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.2, mkdocs-material-7.1.7">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.7">
     
     
       
@@ -403,6 +403,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-extensions" class="md-nav__link">
+    Enabling extensions
+  </a>
   
 </li>
       
@@ -807,6 +814,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enabling-extensions" class="md-nav__link">
+    Enabling extensions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#connect-to-the-postgresql-server" class="md-nav__link">
     Connect to the PostgreSQL server
   </a>
@@ -902,9 +916,22 @@ depending on the package manager of your operating system).</p>
 <p class="admonition-title">Note</p>
 <p>You need to set up <code>pg_stat_monitor</code> in order to use it with Percona Distribution for PostgreSQL. Refer to <a href="pg-stat-monitor.html#setup">Setup</a> for configuration guidelines.</p>
 </div>
+<p>Install <code>PgBouncer</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbouncer
+</code></pre></div>
+<p>Install <code>pgAudit-set_user</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgaudit11-set-user
+</code></pre></div>
+<p>Install <code>pgBadger</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbadger
+</code></pre></div>
+<p>Install <code>wal2json</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-11-wal2json
+</code></pre></div>
 <p>Install PostgreSQL contrib extensions:</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-contrib
 </code></pre></div>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
 <h3 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h3>
 <p>The installation process automatically initializes the default database. Thus, to start Percona Distribution for PostgreSQL, use the following command:</p>
 <div class="highlight"><pre><span></span><code>$ sudo pg_ctlcluster 11 main start
@@ -942,15 +969,53 @@ $ sudo yum repolist
 <p class="admonition-title">Note</p>
 <p>You need to set up <code>pg_stat_monitor</code> in order to use it with Percona Distribution for PostgreSQL. Refer to <a href="pg-stat-monitor.html#setup">Setup</a> for configuration guidelines.</p>
 </div>
+<p>Install <code>PgBouncer</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbouncer
+</code></pre></div>
+<p>Install <code>pgAudit-set_user</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgaudit11_set_user
+</code></pre></div>
+<p>Install <code>pgBadger</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-pgbadger
+</code></pre></div>
+<p>Install <code>wal2json</code>:</p>
+<div class="highlight"><pre><span></span><code>$ sudo yum install percona-wal2json11
+</code></pre></div>
 <p>Install PostgreSQL contrib extensions:</p>
 <div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql11-contrib
 </code></pre></div>
+<p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
 <h3 id="starting-the-service_1">Starting the service<a class="headerlink" href="#starting-the-service_1" title="Permanent link">&para;</a></h3>
 <p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
 <div class="highlight"><pre><span></span><code>/usr/pgsql-11/bin/postgresql-11-setup initdb
 </code></pre></div>
 <p>Start the PostgreSQL service:</p>
 <div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-11
+</code></pre></div>
+<h2 id="enabling-extensions">Enabling extensions<a class="headerlink" href="#enabling-extensions" title="Permanent link">&para;</a></h2>
+<p>Some extensions require additional configuration before using them with |pdp|. This sections provides configuration instructions per extension.</p>
+<p><strong>pgBadger</strong></p>
+<p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
+<div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
+log_line_prefix = &#39;%t [%p]: &#39;
+log_checkpoints = on
+log_connections = on
+log_disconnections = on
+log_lock_waits = on
+log_temp_files = 0
+log_autovacuum_min_duration = 0
+log_error_verbosity = default
+</code></pre></div>
+<p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION&gt;">pdBadger documentation</a>.</p>
+<p><strong>pgAudit set-user</strong></p>
+<p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to  use the <a href="https://www.postgresql.org/docs/11/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
+<div class="highlight"><pre><span></span><code>$ ALTER SYSTEM SET shared_preload_libraries = &#39;set-user&#39;;
+</code></pre></div>
+<p>Start/restart the server to apply the configuration.</p>
+<p>You can fine-tune user behavior with the <a href="https://github.com/pgaudit/set_user#configuration-options">custom parameters</a> supplied with the extension.</p>
+<p><strong>wal2json</strong></p>
+<p>After the installation, enable the following option in <code>postgresql.conf</code> configuration file before starting the service:</p>
+<div class="highlight"><pre><span></span><code>wal_level = logical
 </code></pre></div>
 <h2 id="connect-to-the-postgresql-server">Connect to the PostgreSQL server<a class="headerlink" href="#connect-to-the-postgresql-server" title="Permanent link">&para;</a></h2>
 <p>By default, <code>postgres</code> user and <code>postgres</code> database are created in PostgreSQL upon its installation and initialization. This allows you to connect to the database as the <code>postgres</code> user.</p>
@@ -976,7 +1041,7 @@ $ sudo yum repolist
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-05-28
+      Last update: 2021-06-10
     
   </small>
 </div>
