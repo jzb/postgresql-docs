@@ -18,7 +18,7 @@
     
     
       
-        <title>Percona Distribution for PostgreSQL 11.8 - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 11.10 Update - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-118" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-1110-update" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 11.8
+              Percona Distribution for PostgreSQL 11.10 Update
             
           </span>
         </div>
@@ -482,11 +482,21 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v11.10.upd.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v11.10.upd.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 11.10 Update
       </a>
+      
     </li>
   
 
@@ -518,21 +528,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="release-notes-v11.8.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v11.8.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 11.8
       </a>
-      
     </li>
   
 
@@ -635,12 +635,12 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/percona/postgresql-docs/edit/11/docs/release-notes-v11.8.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/percona/postgresql-docs/edit/11/docs/release-notes-v11.10.upd.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="percona-distribution-for-postgresql-118">Percona Distribution for PostgreSQL 11.8<a class="headerlink" href="#percona-distribution-for-postgresql-118" title="Permanent link">&para;</a></h1>
+                <h1 id="percona-distribution-for-postgresql-1110-update">Percona Distribution for PostgreSQL 11.10 Update<a class="headerlink" href="#percona-distribution-for-postgresql-1110-update" title="Permanent link">&para;</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
   <colgroup>
     <col class="field-name">
@@ -649,7 +649,7 @@
   <tbody valign="top">
     <tr class="field-odd field">
       <th class="field-name">Date:</th>
-      <td class="field-body">June 11, 2020</td>
+      <td class="field-body">June 10, 2021</td>
     </tr>
     <tr class="field-even field">
       <th class="field-name">Installation:</th>
@@ -659,42 +659,9 @@
   </tbody>
 </table>
 
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
-installs PostgreSQL and complements it by a selection of extensions that
-enable solving essential practical tasks efficiently:</p>
-<ul>
-<li>
-<p><a href="https://github.com/reorg/pg_repack">Pg_repack</a> rebuilds PostgreSQL
-database objects.</p>
-</li>
-<li>
-<p><a href="https://www.pgaudit.org/">Pgaudit</a> provides detailed session or object
-audit logging via the standard logging facility provided by PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://pgbackrest.org/">pgBackRest</a> - a backup and restore solution for
-PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> - an HA (High Availability) solution for
-PostgreSQL</p>
-</li>
-<li>
-<p>A collection of <a href="https://www.postgresql.org/docs/11/contrib.html">additional PostgreSQL contrib extensions</a></p>
-</li>
-</ul>
-<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/11/libpq.html">libpq</a> library. It contains “a set of
-library functions that allow client programs to pass queries to the PostgreSQL
-backend server and to receive the results of these queries.” <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
-<p>This release of Percona Distribution for PostgreSQL is based on PostgreSQL 11.8.</p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>https://www.postgresql.org/docs/11/libpq.html&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
+<p>This update of Percona Distribution for PostgreSQL includes <code>llvm</code> packages for  Red Hat Enterprise Linux 8 / CentOS 8. This fixes compatibility issues with LLVM from upstream. To use <code>llvm</code> packages supplied by us, disable the upstream <code>llvm-toolset</code> module before the installation:</p>
+<div class="highlight"><pre><span></span><code>sudo dnf module disable llvm-toolset
+</code></pre></div>
                 
                   
                     
@@ -703,7 +670,7 @@ backend server and to receive the results of these queries.” <sup id="fnref:1"
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-05-28
+      Last update: 2021-06-10
     
   </small>
 </div>
@@ -731,7 +698,7 @@ backend server and to receive the results of these queries.” <sup id="fnref:1"
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="release-notes-v11.9.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 11.9" rel="prev">
+        <a href="release-notes-v11.11.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 11.11" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -740,20 +707,20 @@ backend server and to receive the results of these queries.” <sup id="fnref:1"
               <span class="md-footer__direction">
                 Previous
               </span>
-              Percona Distribution for PostgreSQL 11.9
+              Percona Distribution for PostgreSQL 11.11
             </div>
           </div>
         </a>
       
       
         
-        <a href="release-notes-v11.7.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 11.7" rel="next">
+        <a href="release-notes-v11.10.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 11.10" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Percona Distribution for PostgreSQL 11.7
+              Percona Distribution for PostgreSQL 11.10
             </div>
           </div>
           <div class="md-footer__button md-icon">
