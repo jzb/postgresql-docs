@@ -18,7 +18,7 @@
     
     
       
-        <title>Installation and Upgrade - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 13.3 Update - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#installation-and-upgrade" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-133-update" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Installation and Upgrade
+              Percona Distribution for PostgreSQL 13.3 Update
             
           </span>
         </div>
@@ -246,19 +246,17 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
       
       <label class="md-nav__link" for="__nav_2">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="installation-and-update.html" class="md-nav__link md-nav__link--active"
+          <a href="installation-and-update.html" class="md-nav__link"
             style="margin: initial; padding: initial; pointer-events: initial">
         
           Installation and Upgrade
@@ -268,7 +266,7 @@
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           
-            <a href="installation-and-update.html" class="md-nav__link md-nav__link--active"
+            <a href="installation-and-update.html" class="md-nav__link"
               style="margin: initial; padding: initial; pointer-events: initial">
           
             Installation and Upgrade
@@ -391,12 +389,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         <span class="md-nav__icon md-icon"></span>
@@ -422,11 +422,21 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v13.3.upd.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v13.3.upd.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 13.3 Update
       </a>
+      
     </li>
   
 
@@ -565,17 +575,39 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/percona/postgresql-docs/edit/13/docs/installation-and-update.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/percona/postgresql-docs/edit/13/docs/release-notes-v13.3.upd.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="installation-and-upgrade">Installation and Upgrade<a class="headerlink" href="#installation-and-upgrade" title="Permanent link">&para;</a></h1>
-<p>This section provides instructions on how to:</p>
+                <h1 id="percona-distribution-for-postgresql-133-update">Percona Distribution for PostgreSQL 13.3 Update<a class="headerlink" href="#percona-distribution-for-postgresql-133-update" title="Permanent link">&para;</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+  <colgroup>
+    <col class="field-name">
+    <col class="field-body">
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field-odd field">
+      <th class="field-name">Date:</th>
+      <td class="field-body">June 10, 2021</td>
+    </tr>
+    <tr class="field-even field">
+      <th class="field-name">Installation:</th>
+      <td class="field-body">
+        <a class="reference external" href="https://www.percona.com/doc/postgresql/13/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This update of Percona Distribution for PostgreSQL includes the following fixes for Red Hat Enterprise Linux 8 / CentOS 8:</p>
 <ul>
-<li><a href="installing.html">install</a> Percona Distribution for PostgreSQL 13;</li>
-<li><a href="minor-upgrade.html">update</a> Percona Distribution for PostgreSQL to the latest minor version;</li>
-<li><a href="major-upgrade.html">upgrade</a> Percona Distribution for PostgreSQL to a new major version.</li>
+<li><code>llvm</code> packages are added to the repository. This fixes compatibility issues with LLVM from upstream. To use <code>llvm</code> packages supplied by us, disable the upstream <code>llvm-toolset</code> module before the installation:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo dnf module disable llvm-toolset
+</code></pre></div>
+<ul>
+<li>systemd unit file includes the correct path to Patroni configuration file. </li>
+<li><code>etcd</code> and <code>python3-python-etcd</code> packages are added as <code>RPM</code> packages to Percona Distribution for PostgreSQL for Red Hat Enterprise Linux / CentOS 8. These packages are used to set up High Availability clusters with Patroni.  For how to set up Patroni clusters, see <a href="https://patroni.readthedocs.io/en/latest/README.html#running-configuring">Patroni documentation</a> </li>
 </ul>
                 
                   
@@ -585,7 +617,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-04
+      Last update: 2021-06-10
     
   </small>
 </div>
@@ -613,7 +645,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 13 Documentation" rel="prev">
+        <a href="release-notes.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release Notes" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -622,20 +654,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Percona Distribution for PostgreSQL 13 Documentation
+              Release Notes
             </div>
           </div>
         </a>
       
       
         
-        <a href="installing.html" class="md-footer__link md-footer__link--next" aria-label="Next: Installing Percona Distribution for PostgreSQL" rel="next">
+        <a href="release-notes-v13.3.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 13.3" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Installing Percona Distribution for PostgreSQL
+              Percona Distribution for PostgreSQL 13.3
             </div>
           </div>
           <div class="md-footer__button md-icon">
