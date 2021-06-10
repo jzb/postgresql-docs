@@ -18,7 +18,7 @@
     
     
       
-        <title>Uninstall - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 12.6 Fourth Update - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -77,7 +77,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#uninstalling-percona-distribution-for-postgresql" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-126-fourth-update" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Uninstall
+              Percona Distribution for PostgreSQL 12.6 Fourth Update
             
           </span>
         </div>
@@ -374,63 +374,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          <span class="md-nav__icon md-icon"></span>
-          
-            <a href="uninstalling.html" class="md-nav__link md-nav__link--active"
-              style="margin: initial; padding: initial; pointer-events: initial">
-          
-            Uninstall
-          </a>
-        </label>
-      
-      <a href="uninstalling.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="uninstalling.html" class="md-nav__link">
         Uninstall
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#on-debian-and-ubuntu-using-apt" class="md-nav__link">
-    On Debian and Ubuntu using apt
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#on-red-hat-enterprise-linux-and-centos-using-yum" class="md-nav__link">
-    On Red Hat Enterprise Linux and CentOS using yum
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -441,12 +389,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         <span class="md-nav__icon md-icon"></span>
@@ -496,11 +446,21 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v12.6.upd4.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v12.6.upd4.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 12.6 Fourth Update
       </a>
+      
     </li>
   
 
@@ -653,28 +613,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#on-debian-and-ubuntu-using-apt" class="md-nav__link">
-    On Debian and Ubuntu using apt
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#on-red-hat-enterprise-linux-and-centos-using-yum" class="md-nav__link">
-    On Red Hat Enterprise Linux and CentOS using yum
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -685,56 +623,33 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/percona/postgresql-docs/edit/12/docs/uninstalling.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/percona/postgresql-docs/edit/12/docs/release-notes-v12.6.upd4.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="uninstalling-percona-distribution-for-postgresql">Uninstalling Percona Distribution for PostgreSQL<a class="headerlink" href="#uninstalling-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
-<p>To uninstall Percona Distribution for PostgreSQL, remove all the installed packages and data / configuration files.</p>
-<p><strong>NOTE</strong>: Should you need the data files later, back up your data before uninstalling Percona Distribution for PostgreSQL.</p>
-<h2 id="on-debian-and-ubuntu-using-apt">On Debian and Ubuntu using <code>apt</code><a class="headerlink" href="#on-debian-and-ubuntu-using-apt" title="Permanent link">&para;</a></h2>
-<p>To uninstall Percona Distribution for PostgreSQL on platforms that use <strong>apt</strong> package manager such as Debian
-or Ubuntu, complete the following steps.</p>
-<p>Run all commands as root or via <strong>sudo</strong>.</p>
-<ol>
-<li>
-<p>Stop the Percona Distribution for PostgreSQL service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql.service
+                <h1 id="percona-distribution-for-postgresql-126-fourth-update">Percona Distribution for PostgreSQL 12.6 Fourth Update<a class="headerlink" href="#percona-distribution-for-postgresql-126-fourth-update" title="Permanent link">&para;</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+  <colgroup>
+    <col class="field-name">
+    <col class="field-body">
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field-odd field">
+      <th class="field-name">Date:</th>
+      <td class="field-body">June 10, 2021</td>
+    </tr>
+    <tr class="field-even field">
+      <th class="field-name">Installation:</th>
+      <td class="field-body">
+        <a class="reference external" href="https://www.percona.com/doc/postgresql/12/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>This update of Percona Distribution for PostgreSQL includes <code>llvm</code> packages for  Red Hat Enterprise Linux 8 / CentOS 8. This fixes compatibility issues with LLVM from upstream. To use <code>llvm</code> packages supplied by us, disable the upstream <code>llvm-toolset</code> module before the installation:</p>
+<div class="highlight"><pre><span></span><code>sudo dnf module disable llvm-toolset
 </code></pre></div>
-</li>
-<li>
-<p>Remove the <strong>percona-postgresql</strong> packages.</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get remove percona-postgresql-12* percona-patroni percona-pgbackrest percona-pgbadger percona-pgbouncer
-</code></pre></div>
-</li>
-<li>
-<p>Remove configuration and data files.</p>
-<div class="highlight"><pre><span></span><code>$ rm -rf /etc/postgresql/12/main
-</code></pre></div>
-</li>
-</ol>
-<h2 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h2>
-<p>To uninstall Percona Distribution for PostgreSQL on platforms that use <strong>yum</strong> package manager such as
-Red Hat Enterprise Linux or CentOS, complete the following steps.</p>
-<p>Run all commands as root or via <strong>sudo</strong>.</p>
-<ol>
-<li>
-<p>Stop the Percona Distribution for PostgreSQL service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-12
-</code></pre></div>
-</li>
-<li>
-<p>Remove the <strong>percona-postgresql</strong> packages</p>
-<div class="highlight"><pre><span></span><code>$ sudo yum remove percona-postgresql12* percona-pgbadger
-</code></pre></div>
-</li>
-<li>
-<p>Remove configuration and data files</p>
-<div class="highlight"><pre><span></span><code>$ rm -rf /var/lib/pgsql/12/data
-</code></pre></div>
-</li>
-</ol>
                 
                   
                     
@@ -743,7 +658,7 @@ Red Hat Enterprise Linux or CentOS, complete the following steps.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-04
+      Last update: 2021-06-10
     
   </small>
 </div>
@@ -771,7 +686,7 @@ Red Hat Enterprise Linux or CentOS, complete the following steps.</p>
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="pg-stat-monitor.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: pg_stat_monitor" rel="prev">
+        <a href="release-notes-v12.7.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 12.7" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -780,20 +695,20 @@ Red Hat Enterprise Linux or CentOS, complete the following steps.</p>
               <span class="md-footer__direction">
                 Previous
               </span>
-              pg_stat_monitor
+              Percona Distribution for PostgreSQL 12.7
             </div>
           </div>
         </a>
       
       
         
-        <a href="release-notes.html" class="md-footer__link md-footer__link--next" aria-label="Next: Release Notes" rel="next">
+        <a href="release-notes-v12.6.upd3.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 12.6 Third Update" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Release Notes
+              Percona Distribution for PostgreSQL 12.6 Third Update
             </div>
           </div>
           <div class="md-footer__button md-icon">
