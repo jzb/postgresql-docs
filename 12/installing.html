@@ -352,19 +352,6 @@
     On Debian and Ubuntu using apt
   </a>
   
-    <nav class="md-nav" aria-label="On Debian and Ubuntu using apt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -376,7 +363,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-specific-notes_1" class="md-nav__link">
+  <a href="#platform-specific-notes" class="md-nav__link">
     Platform Specific Notes
   </a>
   
@@ -757,19 +744,6 @@
     On Debian and Ubuntu using apt
   </a>
   
-    <nav class="md-nav" aria-label="On Debian and Ubuntu using apt">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -781,7 +755,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-specific-notes_1" class="md-nav__link">
+  <a href="#platform-specific-notes" class="md-nav__link">
     Platform Specific Notes
   </a>
   
@@ -870,8 +844,6 @@ depending on the package manager of your operating system).</p>
 <p class="admonition-title">Note</p>
 <p>On Debian and other systems that use the <code>apt</code> package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 12 can only be installed together with the server shipped by Percona (percona-postgresql-12). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-12) and then install the chosen components from Percona Distribution for PostgreSQL.</p>
 </div>
-<h4 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h4>
-<p>On Debian 9 (stretch), you need to <a href="https://apt.llvm.org/">enable the llvm repository</a></p>
 <p>Install the <strong>percona-postgresql-12</strong> package using <code>apt-get</code>.</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-12
 </code></pre></div>
@@ -913,14 +885,16 @@ depending on the package manager of your operating system).</p>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
 <p>Next steps: <a href="installing.html#connect-to-the-postgresql-server">connect to PostgreSQL</a>.</p>
 <h3 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h3>
-<h4 id="platform-specific-notes_1">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes_1" title="Permanent link">&para;</a></h4>
-<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the postgresql module:</p>
-<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql
+<h4 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8 / CentOS 8, disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:</p>
+<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql llvm-toolset
 </code></pre></div>
-<p>On CentOS 7, you should install the epel-release package:</p>
+<p>On CentOS 7, you should install the <code>epel-release</code> package:</p>
 <div class="highlight"><pre><span></span><code>$ sudo yum -y install epel-release
 $ sudo yum repolist
 </code></pre></div>
+</blockquote>
 <p>Install the <strong>percona-postgresql-12</strong> package using <strong>yum install</strong>.</p>
 <div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql12-server
 </code></pre></div>
@@ -1009,7 +983,7 @@ log_error_verbosity = default
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-04
+      Last update: 2021-06-10
     
   </small>
 </div>
