@@ -356,21 +356,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
+  <a href="#starting-the-service" class="md-nav__link">
+    Starting the service
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-service" class="md-nav__link">
-    Starting the service
-  </a>
   
 </li>
         
@@ -383,14 +376,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-specific-notes_1" class="md-nav__link">
+  <a href="#platform-specific-notes" class="md-nav__link">
     Platform Specific Notes
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -398,6 +386,11 @@
   <a href="#starting-the-service_1" class="md-nav__link">
     Starting the service
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -546,6 +539,18 @@
           </a>
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="release-notes-v11.12.upd.html" class="md-nav__link">
+        Percona Distribution for PostgreSQL 11.12 Update
+      </a>
+    </li>
+  
+
           
             
   
@@ -763,21 +768,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-specific-notes" class="md-nav__link">
-    Platform Specific Notes
+  <a href="#starting-the-service" class="md-nav__link">
+    Starting the service
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#starting-the-service" class="md-nav__link">
-    Starting the service
-  </a>
   
 </li>
         
@@ -790,14 +788,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#platform-specific-notes_1" class="md-nav__link">
+  <a href="#platform-specific-notes" class="md-nav__link">
     Platform Specific Notes
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -805,6 +798,11 @@
   <a href="#starting-the-service_1" class="md-nav__link">
     Starting the service
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -891,8 +889,6 @@ depending on the package manager of your operating system).</p>
 <p class="admonition-title">Note</p>
 <p>On Debian and other systems that use the <code>apt</code> package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 11 can only be installed together with the server shipped by Percona (percona-postgresql-11). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-11) and then install the chosen components from Percona Distribution for PostgreSQL.</p>
 </div>
-<h4 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h4>
-<p>On Debian 9 (stretch), you need to <a href="https://apt.llvm.org/">enable the llvm repository</a></p>
 <p>Install the <strong>percona-postgresql-11</strong> package using the following command.</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-11
 </code></pre></div>
@@ -932,20 +928,22 @@ depending on the package manager of your operating system).</p>
 <div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-contrib
 </code></pre></div>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
-<h3 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h3>
+<h4 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h4>
 <p>The installation process automatically initializes the default database. Thus, to start Percona Distribution for PostgreSQL, use the following command:</p>
 <div class="highlight"><pre><span></span><code>$ sudo pg_ctlcluster 11 main start
 </code></pre></div>
 <p>Next steps: <a href="#connect-to-the-postgresql-server">connect to PostgreSQL</a>.</p>
 <h3 id="on-red-hat-enterprise-linux-and-centos-using-yum">On Red Hat Enterprise Linux and CentOS using <code>yum</code><a class="headerlink" href="#on-red-hat-enterprise-linux-and-centos-using-yum" title="Permanent link">&para;</a></h3>
-<h4 id="platform-specific-notes_1">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes_1" title="Permanent link">&para;</a></h4>
-<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8, disable the <code>postgresql</code> module:</p>
-<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql
+<h4 id="platform-specific-notes">Platform Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>If you intend to install Percona Distribution for PostgreSQL on Red Hat Enterprise Linux v8 / CentOS 8, disable the <code>postgresql</code>  and <code>llvm-toolset</code>modules:</p>
+<div class="highlight"><pre><span></span><code>$ sudo dnf module disable postgresql llvm-toolset
 </code></pre></div>
 <p>On CentOS 7, you should install the <code>epel-release</code> package:</p>
 <div class="highlight"><pre><span></span><code>$ sudo yum -y install epel-release
 $ sudo yum repolist
 </code></pre></div>
+</blockquote>
 <p>Install the <strong>percona-postgresql-11</strong> package using <strong>yum install</strong>.</p>
 <div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql11-server
 </code></pre></div>
@@ -985,7 +983,7 @@ $ sudo yum repolist
 <div class="highlight"><pre><span></span><code>$ sudo yum install percona-postgresql11-contrib
 </code></pre></div>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
-<h3 id="starting-the-service_1">Starting the service<a class="headerlink" href="#starting-the-service_1" title="Permanent link">&para;</a></h3>
+<h4 id="starting-the-service_1">Starting the service<a class="headerlink" href="#starting-the-service_1" title="Permanent link">&para;</a></h4>
 <p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
 <div class="highlight"><pre><span></span><code>/usr/pgsql-11/bin/postgresql-11-setup initdb
 </code></pre></div>
