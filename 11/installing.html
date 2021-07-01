@@ -1029,7 +1029,44 @@ $ sudo yum repolist
 <div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-11
 </code></pre></div>
 <h2 id="enabling-extensions">Enabling extensions<a class="headerlink" href="#enabling-extensions" title="Permanent link">&para;</a></h2>
-<p>Some extensions require additional configuration before using them with |pdp|. This sections provides configuration instructions per extension.</p>
+<p>Some extensions require additional configuration before using them with |pdp|. This section provides configuration instructions per extension.</p>
+<p><strong>Patroni</strong></p>
+<p>While setting up a high availability PostgreSQL cluster with Patroni, you will need the following:</p>
+<ul>
+<li>
+<p>Configure Patroni on every <code>postresql</code> instance. The configuration file is supplied with <code>percona-patroni</code> package and is available at the following path:</p>
+<ul>
+<li><code>/etc/postgresql.yml</code> for Debian and Ubuntu</li>
+<li><code>/usr/share/doc/percona-patroni/postgres0.yml</code> for Red Hat Enterprise Linux and CentOS</li>
+</ul>
+</li>
+<li>
+<p>Install and configure Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  </p>
+<p>For Debian 9 (&ldquo;stretch&rdquo;), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
+<div class="highlight"><pre><span></span><code>$ apt-get install etcd
+</code></pre></div>
+<p>For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
+<div class="highlight"><pre><span></span><code>$ yum install etcd python3-python-etcd
+</code></pre></div>
+</li>
+<li>
+<p>Install and configure <a href="http://www.haproxy.org/">HAProxy</a>.</p>
+</li>
+</ul>
+<div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
+<ul>
+<li>
+<p><a href="https://patroni.readthedocs.io/en/latest/SETTINGS.html#settings">Patroni documentation</a></p>
+</li>
+<li>
+<p>Percona Blog: </p>
+<ul>
+<li><a href="https://www.percona.com/blog/2021/06/11/postgresql-ha-with-patroni-your-turn-to-test-failure-scenarios/">PostgreSQL HA with Patroni: Your Turn to Test Failure Scenarios</a> </li>
+</ul>
+</li>
+</ul>
+</div>
 <p><strong>pgBadger</strong></p>
 <p>Enable the following options in <code>postgresql.conf</code> configuration file before starting the service:</p>
 <div class="highlight"><pre><span></span><code>log_min_duration_statement = 0
@@ -1077,7 +1114,7 @@ log_error_verbosity = default
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-10
+      Last update: 2021-07-01
     
   </small>
 </div>
