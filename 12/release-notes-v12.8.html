@@ -18,7 +18,7 @@
     
     
       
-        <title>Extensions - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 12.8 - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -79,7 +79,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#extensions" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-128" class="md-skip">
           Skip to content
         </a>
       
@@ -108,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Extensions
+              Percona Distribution for PostgreSQL 12.8
             
           </span>
         </div>
@@ -328,19 +328,17 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
       
       <label class="md-nav__link" for="__nav_3">
         <span class="md-nav__icon md-icon"></span>
         
-          <a href="extenstions.html" class="md-nav__link md-nav__link--active"
+          <a href="extenstions.html" class="md-nav__link"
             style="margin: initial; padding: initial; pointer-events: initial">
         
           Extensions
@@ -350,7 +348,7 @@
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           
-            <a href="extenstions.html" class="md-nav__link md-nav__link--active"
+            <a href="extenstions.html" class="md-nav__link"
               style="margin: initial; padding: initial; pointer-events: initial">
           
             Extensions
@@ -397,12 +395,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
       
       <label class="md-nav__link" for="__nav_5">
         <span class="md-nav__icon md-icon"></span>
@@ -428,11 +428,21 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v12.8.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v12.8.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 12.8
       </a>
+      
     </li>
   
 
@@ -655,13 +665,139 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/percona/postgresql-docs/edit/12/docs/extenstions.md" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/percona/postgresql-docs/edit/12/docs/release-notes-v12.8.md" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
-<p><a href="pg-stat-monitor.html">pg_stat_monitor</a></p>
+                <h1 id="percona-distribution-for-postgresql-128">Percona Distribution for PostgreSQL 12.8<a class="headerlink" href="#percona-distribution-for-postgresql-128" title="Permanent link">&para;</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+  <colgroup>
+    <col class="field-name">
+    <col class="field-body">
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field-odd field">
+      <th class="field-name">Date:</th>
+      <td class="field-body">September 9, 2021</td>
+    </tr>
+    <tr class="field-even field">
+      <th class="field-name">Installation:</th>
+      <td class="field-body">
+        <a class="reference external" href="https://www.percona.com/doc/postgresql/12/installing.html#">Installing Percona Distribution for PostgreSQL</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL
+installs PostgreSQL and complements it by a selection of extensions that
+enable solving essential practical tasks efficiently.</p>
+<p>This release of Percona Distribution for PostgreSQL is based on <a href="https://www.postgresql.org/docs/release/12.8/">PostgreSQL 12.8</a>.</p>
+<p>The following is the list of extensions available in Percona Distribution for PostgreSQL.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Version</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a></td>
+<td>2.1.0</td>
+<td>a HA (High Availability) solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://www.pgaudit.org/">pgAudit</a></td>
+<td>1.4.1</td>
+<td>provides detailed session or object audit logging via the standard logging facility provided by PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a></td>
+<td>2.0.1</td>
+<td>provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</td>
+</tr>
+<tr>
+<td><a href="https://pgbackrest.org/">pgBackRest</a></td>
+<td>2.34</td>
+<td>a backup and restore solution for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/darold/pgbadger">pgBadger</a></td>
+<td>11.5</td>
+<td>a fast PostgreSQL Log Analyzer</td>
+</tr>
+<tr>
+<td><a href="https://www.pgbouncer.org/">PgBouncer</a></td>
+<td>1.16.0</td>
+<td>a lightweight connection pooler for PostgreSQL</td>
+</tr>
+<tr>
+<td><a href="https://github.com/reorg/pg_repack">pg_repack</a></td>
+<td>1.4.6</td>
+<td>rebuilds PostgreSQL database objects</td>
+</tr>
+<tr>
+<td><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a></td>
+<td>0.9.2 - Beta1</td>
+<td>collects and aggregates statistics for PostgreSQL and provides histogram information.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/eulerto/wal2json">wal2json</a></td>
+<td>2.3</td>
+<td>a PostgreSQL logical decoding JSON output plugin.</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL also includes the ETCD packages which are used for Patroni cluster setup. These packages are available for the following operating systems:</p>
+<table>
+<thead>
+<tr>
+<th>Operating System</th>
+<th>Package</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CentOS 7</td>
+<td><code>python3-python-etcd</code></td>
+<td>A Python client for ETCD</td>
+</tr>
+<tr>
+<td>CentOS 8</td>
+<td><code>etcd</code></td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-python-etcd</code></td>
+<td>A Python client for ETCD</td>
+</tr>
+<tr>
+<td>Debian 9 (&lsquo;stretch&rsquo;)</td>
+<td><code>etcd</code></td>
+<td>A consistent, distributed key-value store</td>
+</tr>
+<tr>
+<td></td>
+<td><code>python3-etcd</code></td>
+<td>A Python client for ETCD</td>
+</tr>
+</tbody>
+</table>
+<p>Percona Distribution for PostgreSQL is also shipped with the <a href="https://www.postgresql.org/docs/12/libpq.html">libpq</a> library. It contains &ldquo;a set of
+library functions that allow client programs to pass queries to the PostgreSQL
+backend server and to receive the results of these queries.&rdquo; <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://www.postgresql.org/docs/12/libpq.html&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                     
@@ -670,7 +806,7 @@
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-06-04
+      Last update: 2021-09-09
     
   </small>
 </div>
@@ -699,7 +835,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="minor-upgrade.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Minor Upgrade of Percona Distribution for PostgreSQL" rel="prev">
+        <a href="release-notes.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release Notes" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -708,20 +844,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Minor Upgrade of Percona Distribution for PostgreSQL
+              Release Notes
             </div>
           </div>
         </a>
       
       
         
-        <a href="pg-stat-monitor.html" class="md-footer__link md-footer__link--next" aria-label="Next: pg_stat_monitor" rel="next">
+        <a href="release-notes-v12.7.upd3.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 12.7 Third Update" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              pg_stat_monitor
+              Percona Distribution for PostgreSQL 12.7 Third Update
             </div>
           </div>
           <div class="md-footer__button md-icon">
