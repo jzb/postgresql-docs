@@ -14,7 +14,7 @@
       
       
       <link rel="icon" href="_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.3.1">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
     
     
       
@@ -22,7 +22,7 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.1c75ef36.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.db9e7362.min.css">
       
         
         <link rel="stylesheet" href="assets/stylesheets/palette.3f5d1f46.min.css">
@@ -273,9 +273,11 @@
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="installation-and-update.html">Installation and Upgrade</a>
-          <label for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_2">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Installation and Upgrade" data-md-level="1">
@@ -481,9 +483,7 @@
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="extensions.html">Extensions</a>
-          <label for="__nav_3">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Extensions" data-md-level="1">
@@ -548,9 +548,11 @@
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="release-notes.html">Release Notes</a>
-          <label for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-          </label>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
         </div>
       
       <nav class="md-nav" aria-label="Release Notes" data-md-level="1">
@@ -943,43 +945,43 @@ depending on the package manager of your operating system).</p>
 <p class="admonition-title">Note</p>
 <p>On Debian and other systems that use the <code>apt</code> package manager, such as Ubuntu, components of Percona Distribution for PostgreSQL 13 can only be installed together with the server shipped by Percona (percona-postgresql-13). If you wish to use Percona Distribution for PostgreSQL, uninstall the PostgreSQL package provided by your distribution (postgresql-13) and then install the chosen components from Percona Distribution for PostgreSQL.</p>
 </div>
-<p>Install the <strong>percona-postgresql-13</strong> package using <strong>apt-get install</strong>.</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13
+<p>Install the <strong>percona-postgresql-13</strong> package using <strong>apt install</strong>.</p>
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-13
 </code></pre></div>
 <p>Note that this package will not install the components. Use the following commands to install components’ packages:</p>
 <p>Install <code>pg_repack</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13-repack
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-13-repack
 </code></pre></div>
 <p>Install <code>pgAudit</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13-pgaudit
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-13-pgaudit
 </code></pre></div>
 <p>Install <code>pgBackRest</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbackrest
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-pgbackrest
 </code></pre></div>
 <p>Install <code>Patroni</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-patroni
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-patroni
 </code></pre></div>
 <p>Install <code>pg_stat_monitor</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pg-stat-monitor13
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-pg-stat-monitor13
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You need to set up <code>pg_stat_monitor</code> in order to use it with Percona Distribution for PostgreSQL. Refer to <a href="pg-stat-monitor.html#setup">Setup</a> for configuration guidelines.</p>
 </div>
 <p>Install <code>pgBouncer</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbouncer
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-pgbouncer
 </code></pre></div>
 <p>Install <code>pgAudit-set_user</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgaudit13-set-user
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-pgaudit13-set-user
 </code></pre></div>
 <p>Install <code>pgBadger</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-pgbadger
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-pgbadger
 </code></pre></div>
 <p>Install <code>wal2json</code>:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-13-wal2json
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-13-wal2json
 </code></pre></div>
 <p>Install PostgreSQL contrib extensions:</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt-get install percona-postgresql-contrib
+<div class="highlight"><pre><span></span><code>$ sudo apt install percona-postgresql-contrib
 </code></pre></div>
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
 <h4 id="starting-the-service">Starting the service<a class="headerlink" href="#starting-the-service" title="Permanent link">&para;</a></h4>
@@ -1059,7 +1061,7 @@ $ sudo yum repolist
 <li>
 <p>Install and configure Distributed Configuration Store (DCS). Patroni supports such DCSs as ETCD, zookeeper, Kubernetes though <a href="https://etcd.io/">ETCD</a> is the most popular one. It is available upstream as DEB packages for Debian 10 and Ubuntu 18.04, 20.04.  </p>
 <p>For Debian 9 (&ldquo;stretch&rdquo;), a DEB package for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
-<div class="highlight"><pre><span></span><code>$ apt-get install etcd
+<div class="highlight"><pre><span></span><code>$ apt install etcd
 </code></pre></div>
 <p>For CentOS 8, RPM packages for ETCD is available within Percona Distribution for PostreSQL.  You can install it using the following command: </p>
 <div class="highlight"><pre><span></span><code>$ yum install etcd python3-python-etcd
@@ -1130,7 +1132,7 @@ log_error_verbosity = default
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-08-19
+      Last update: 2021-10-25
     
   </small>
 </div>
@@ -1216,10 +1218,10 @@ log_error_verbosity = default
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.e99e714c.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.8397ff9e.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c7d1b464.min.js"></script>
+      <script src="assets/javascripts/bundle.1e84347e.min.js"></script>
       
         <script src="js/version-select.js"></script>
       
