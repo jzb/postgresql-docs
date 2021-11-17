@@ -414,6 +414,46 @@
     Overview
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+    <nav class="md-nav" aria-label="Views">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pg_stat_monitor-view" class="md-nav__link">
+    pg_stat_monitor view
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pg_stat_monitor_settings-view" class="md-nav__link">
+    pg_stat_monitor_settings view
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -866,6 +906,46 @@
     Overview
   </a>
   
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#views" class="md-nav__link">
+    Views
+  </a>
+  
+    <nav class="md-nav" aria-label="Views">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pg_stat_monitor-view" class="md-nav__link">
+    pg_stat_monitor view
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pg_stat_monitor_settings-view" class="md-nav__link">
+    pg_stat_monitor_settings view
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
 </li>
       
         <li class="md-nav__item">
@@ -912,27 +992,58 @@
 <p>This is a technical preview feature and it is subject to further changes.</p>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p><code>pg_stat_monitor</code> is a PostgreSQL Query Performance Monitoring
-tool. It collects statistics data and writes it in a storage unit called <em>bucket</em>. The data is added and stored in a bucket for the defined period – the bucket lifetime.</p>
+<p><code>pg_stat_monitor</code> is a  Query Performance Monitoring
+tool for PostgreSQL. It collects various statistics data such as query statistics, query plan, SQL comments and other performance insights. The collected data is aggregated and presented in a single view. This allows you to view queries from performance, application and analysis perspectives.</p>
+<p><code>pg_stat_monitor</code> groups statistics data and writes it in a storage unit called <em>bucket</em>. The data is added and stored in a bucket for the defined period – the bucket lifetime. This allows you to identify performance issues and patterns based on time.</p>
 <p>You can specify the following:</p>
 <ul>
-<li>
-<p>The number of buckets. Together they form a bucket chain.</p>
-</li>
-<li>
-<p>Bucket size. This is the amount of shared memory allocated for buckets. Memory is divided equally among buckets.</p>
-</li>
-<li>
-<p>Bucket lifetime.</p>
-</li>
+<li>The number of buckets. Together they form a bucket chain.</li>
+<li>Bucket size. This is the amount of shared memory allocated for buckets. Memory is divided equally among buckets.</li>
+<li>Bucket lifetime.</li>
 </ul>
 <p>When a bucket lifetime expires, <code>pg_stat_monitor</code> resets all statistics and writes the data in the next bucket in the chain. When the last bucket’s lifetime expires, <code>pg_stat_monitor</code> returns to the first bucket.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>The contents of the bucket will be overwritten. In order not to lose the data, make sure to read the bucket before <code>pg_stat_monitor</code> starts writing new data to it.</p>
 </div>
+<h3 id="views">Views<a class="headerlink" href="#views" title="Permanent link">&para;</a></h3>
+<p><code>pg_stat_monitor</code> provides two views:</p>
+<ul>
+<li><a href="#pg_stat_monitor-view"><code>pg_stat_monitor</code></a> is the view where statistics data is presented.</li>
+<li><a href="#pg_stat_monitor-settings-view"><code>pg_stat_monitor_settings</code></a> view shows available configuration options which you can change. </li>
+</ul>
+<h4 id="pg_stat_monitor-view">pg_stat_monitor view<a class="headerlink" href="#pg_stat_monitor-view" title="Permanent link">&para;</a></h4>
+<p>The <code>pg_stat_monitor</code> view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the <a href="https://github.com/percona/pg_stat_monitor/blob/master/docs/REFERENCE.md"><code>pg_stat_monitor</code> view reference</a>.</p>
+<p>The following are the primary keys for pg_stat_monitor:</p>
+<ul>
+<li><code>bucket</code>,</li>
+<li><code>userid</code>,</li>
+<li><code>dbid</code>,</li>
+<li><code>client_ip</code>,</li>
+<li><code>application_name</code>.</li>
+</ul>
+<p>A new row is created for each key in the <code>pg_stat_monitor</code> view.</p>
+<p>For security reasons, only superusers and members of the <code>pg_read_all_stats</code> role are allowed to see the SQL text and <code>queryid</code> of queries executed by other users. Other users can see the statistics, however, if the view has been installed in their database.</p>
+<h4 id="pg_stat_monitor_settings-view">pg_stat_monitor_settings view<a class="headerlink" href="#pg_stat_monitor_settings-view" title="Permanent link">&para;</a></h4>
+<p>The <code>pg_stat_monitor_settings</code> view shows one row per <code>pg_stat_monitor</code> configuration parameter. It displays configuration parameter name, value, default value, description, minimum and maximum values, and whether a restart is required for a change in value to be effective.</p>
+<p>To learn more, see the <a href="#changing-the-configuration">Changing the configuration</a> section.</p>
+<h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
+<p>This section describes how to install <code>pg_stat_monitor</code> from Percona repositories. To learn about other installation methods, see the <a href="https://github.com/percona/pg_stat_monitor#installation">Installation</a> section in <code>pg_stat_monitor</code> documentation.</p>
+<p><strong>Assumptions</strong>:</p>
+<p>We assume that you have <a href="https://www.percona.com/doc/percona-repo-config/installing.html">installed percona-release</a> utility and <a href="installing.html#enable-the-repository">enabled the Percona Distribution for PostgreSQL repository</a></p>
+<p>To install <code>pg_stat_monitor</code>, run the following command:</p>
+<ul>
+<li>On Debian and Ubuntu:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo apt-get install percona-pg-stat-monitor11
+</code></pre></div>
+<ul>
+<li>On Red Hat Enterprise Linux and CentOS:</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo yum install percona-pg-stat-monitor11
+</code></pre></div>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>After the <a href="installing.html#install-percona-distribution-for-postgresql-packages">installation</a>, <code>pg_stat_monitor</code> requires additional setup in order to use it with PostgreSQL. The setup steps are the following:</p>
+<p><code>pg_stat_monitor</code> requires additional setup in order to use it with PostgreSQL. The setup steps are the following:</p>
 <ol>
 <li>
 <p>Add <code>pg_stat_monitor</code> in the <code>shared_preload_libraries</code> configuration parameter.</p>
@@ -940,9 +1051,13 @@ tool. It collects statistics data and writes it in a storage unit called <em>buc
 <div class="highlight"><pre><span></span><code>$ ALTER SYSTEM SET shared_preload_libraries = &#39;pg_stat_monitor&#39;;
 </code></pre></div>
 <p>The parameter value is written to the <code>postgresql.auto.conf</code> file which is read in addition with <code>postgresql.conf</code> file. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’ve added other values to the <code>shared_preload_libraries</code> parameter, list all of them separated by commas for the <code>ALTER SYSTEM</code> command. For example, <code>ALTER SYSTEM SET shared_preload_libraries = ‘foo, bar, pg_stat_monitor’</code>.</p>
+</div>
 </li>
 <li>
-<p>Start or restart the PostgreSQL instance to enable <code>pg_stat_monitor</code>. Use the following command for restart:</p>
+<p>Start or restart the <code>postgresql</code> instance to enable <code>pg_stat_monitor</code>. Use the following command for restart:</p>
 <ul>
 <li>On Debian and Ubuntu:</li>
 </ul>
@@ -960,65 +1075,17 @@ tool. It collects statistics data and writes it in a storage unit called <em>buc
 </code></pre></div>
 </li>
 </ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, the extension is created against the <code>postgres</code> database. You need to create the extension on every database where you want to collect statistics.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To check the version of the extension, run the following command in the <code>psql</code> session:</p>
+<div class="highlight"><pre><span></span><code>SELECT pg_stat_monitor_version<span class="o">()</span><span class="p">;</span>
+</code></pre></div>
+</div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p><code>pg_stat_monitor</code> provides two views:</p>
-<ul>
-<li>
-<p><code>pg_stat_monitor</code> is the view where statistics data is presented.</p>
-</li>
-<li>
-<p><code>pg_stat_monitor_settings</code> shows available configuration options which you can change. To learn more, see <a href="#changing-the-configuration">Changing the configuration</a>.</p>
-</li>
-</ul>
-<p>Use the following query to view what metrics <code>pg_stat_monitor</code> can collect:</p>
-<div class="highlight"><pre><span></span><code>$ \d pg_stat_monitor;
-</code></pre></div>
-<p><strong>Output</strong></p>
-<div class="highlight"><pre><span></span><code>                     View &quot;public.pg_stat_monitor&quot;
-       Column        |           Type           | Collation | Nullable | Default
----------------------+--------------------------+-----------+----------+---------
- bucket              | integer                  |           |          |
- bucket_start_time   | timestamp with time zone |           |          |
- userid              | oid                      |           |          |
- dbid                | oid                      |           |          |
- client_ip           | inet                     |           |          |
- queryid             | text                     |           |          |
- query               | text                     |           |          |
- application_name    | text                     |           |          |
- relations           | text[]                   |           |          |
- cmd_type            | text[]                   |           |          |
- elevel              | integer                  |           |          |
- sqlcode             | integer                  |           |          |
- message             | text                     |           |          |
- plans               | bigint                   |           |          |
- plan_total_time     | double precision         |           |          |
- plan_min_timei      | double precision         |           |          |
- plan_max_time       | double precision         |           |          |
- plan_mean_time      | double precision         |           |          |
- plan_stddev_time    | double precision         |           |          |
- calls               | bigint                   |           |          |
- total_time          | double precision         |           |          |
- min_time            | double precision         |           |          |
- max_time            | double precision         |           |          |
- mean_time           | double precision         |           |          |
- stddev_time         | double precision         |           |          |
- rows                | bigint                   |           |          |
- shared_blks_hit     | bigint                   |           |          |
- shared_blks_read    | bigint                   |           |          |
- shared_blks_dirtied | bigint                   |           |          |
- shared_blks_written | bigint                   |           |          |
- local_blks_hit      | bigint                   |           |          |
- local_blks_read     | bigint                   |           |          |
- local_blks_dirtied  | bigint                   |           |          |
- local_blks_written  | bigint                   |           |          |
- temp_blks_read      | bigint                   |           |          |
- temp_blks_written   | bigint                   |           |          |
- blk_read_time       | double precision         |           |          |
- blk_write_time      | double precision         |           |          |
- resp_calls          | text[]                   |           |          |
- cpu_user_time       | double precision         |           |          |
- cpu_sys_time        | double precision         |           |          |
-</code></pre></div>
 <p>For example, to view the IP address of the client application that made the query, run the following command:</p>
 <div class="highlight"><pre><span></span><code>$ SELECT DISTINCT userid::regrole, pg_stat_monitor.datname, substr(query,0, 50)
   AS query, calls, client_ip
@@ -1031,7 +1098,7 @@ tool. It collects statistics data and writes it in a storage unit called <em>buc
  postgres | postgres | SELECT c.relchecks, c.relkind, c.relhasindex, c.r |     1 | 127.0.0.1
  postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 </code></pre></div>
-<p>Find more usage examples  in <a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md">pg_stat_monitor User Guide</a>.</p>
+<p>Find more usage examples in the <a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md">pg_stat_monitor User Guide</a>.</p>
 <h2 id="changing-the-configuration">Changing the configuration<a class="headerlink" href="#changing-the-configuration" title="Permanent link">&para;</a></h2>
 <p>Run the following query to list available configuration parameters.</p>
 <div class="highlight"><pre><span></span><code>$ SELECT name,description FROM pg_stat_monitor_settings;
@@ -1046,10 +1113,13 @@ tool. It collects statistics data and writes it in a storage unit called <em>buc
  pg_stat_monitor.pgsm_normalized_query         | Selects whether save query in normalized format.
  pg_stat_monitor.pgsm_max_buckets              | Sets the maximum number of buckets.
  pg_stat_monitor.pgsm_bucket_time              | Sets the time in seconds per bucket.
- pg_stat_monitor.pgsm_object_cache             | Sets the maximum number of object cache
- pg_stat_monitor.pgsm_respose_time_lower_bound | Sets the time in millisecond.
- pg_stat_monitor.pgsm_respose_time_step        | Sets the response time steps in millisecond.
- pg_stat_monitor.pgsm_query_shared_buffer      | Sets the query shared_buffer size.
+ pg_stat_monitor.pgsm_histogram_min            | Sets the time in millisecond.
+ pg_stat_monitor.pgsm_histogram_max            | Sets the time in millisecond.
+ pg_stat_monitor.pgsm_histogram_buckets        | Sets the maximum number of histogram buckets
+ pg_stat_monitor.pgsm_query_shared_buffer      | Sets the maximum size of shared memory in (MB) used for query tracked by pg_stat_monitor.
+ pg_stat_monitor.pgsm_overflow_target          | Sets the overflow target for pg_stat_monitor
+ pg_stat_monitor.pgsm_enable_query_plan        | Enable/Disable query plan monitoring
+ pg_stat_monitor.pgsm_track_planning           | Selects whether planning statistics are tracked.
 </code></pre></div>
 <p>You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the <a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md#configuration">configuration section</a> of the <code>pg_stat_monitor</code> documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.</p>
 <p>As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the <strong>ALTER SYSTEM</strong> command:</p>
@@ -1077,9 +1147,11 @@ tool. It collects statistics data and writes it in a storage unit called <em>buc
 </code></pre></div>
 <div class="admonition see">
 <p class="admonition-title">see also</p>
-<p><a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/README.md">pg_stat_monitor Documentation</a></p>
-<p>Percona Blog: 
-<a href="https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/">pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics</a></p>
+<ul>
+<li><a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/README.md">pg_stat_monitor Documentation</a></li>
+<li><a href="https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/">pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics</a></li>
+<li><a href="https://www.percona.com/blog/improve-postgresql-query-performance-insights-with-pg_stat_monitor/">Improve PostgreSQL Query Performance Insights with pg_stat_monitor</a></li>
+</ul>
 </div>
                 
                   
@@ -1089,7 +1161,7 @@ tool. It collects statistics data and writes it in a storage unit called <em>buc
 <div class="md-source-date">
   <small>
     
-      Last update: 2021-10-06
+      Last update: 2021-11-17
     
   </small>
 </div>
