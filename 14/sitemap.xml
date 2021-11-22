@@ -2,52 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://postgresql-docs.netlify.app/14/index.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/extensions.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/installation-and-update.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/installing.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/licensing.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/major-upgrade.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/minor-upgrade.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/pg-stat-monitor.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://postgresql-docs.netlify.app/14/release-notes-v14.1.html</loc>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/release-notes.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/14/uninstalling.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
