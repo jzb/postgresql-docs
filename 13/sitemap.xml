@@ -2,117 +2,117 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://postgresql-docs.netlify.app/13/index.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/extensions.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/installation-and-update.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/installing.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/licensing.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/major-upgrade.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/minor-upgrade.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/pg-stat-monitor.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.0.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.1.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.2.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.2.upd.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.2.upd2.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.2.upd3.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.2.upd4.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.3.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.3.upd.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.3.upd2.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.3.upd3.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.4.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes-v13.4.upd.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/release-notes.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://postgresql-docs.netlify.app/13/uninstalling.html</loc>
-         <lastmod>2021-11-17</lastmod>
+         <lastmod>2021-11-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
