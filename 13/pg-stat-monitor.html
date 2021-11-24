@@ -897,9 +897,12 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <div class="highlight"><pre><span></span><code>$ ALTER SYSTEM SET shared_preload_libraries = &#39;pg_stat_monitor&#39;;
 </code></pre></div>
 <p>The parameter value is written to the <code>postgresql.auto.conf</code> file which is read in addition with <code>postgresql.conf</code> file.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you’ve added other values to the <code>shared_preload_libraries</code> parameter, list all of them separated by commas for the <code>ALTER SYSTEM</code> command. For example, <code>ALTER SYSTEM SET shared_preload_libraries = ‘foo, bar, pg_stat_monitor’</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>To use <code>pg_stat_monitor</code> together with <code>pg_stat_statements</code>, specify both modules separated by commas for the ALTER SYSTEM SET command. </p>
+<p>The order of modules is important: <code>pg_stat_monitor</code> must be specified <strong>after</strong> <code>pg_stat_statements</code>: </p>
+<div class="highlight"><pre><span></span><code><span class="k">ALTER</span> <span class="k">SYSTEM</span> <span class="k">SET</span> <span class="n">shared_preload_libraries</span> <span class="o">=</span> <span class="err">‘</span><span class="n">pg_stat_statements</span><span class="p">,</span> <span class="n">pg_stat_monitor</span><span class="err">’</span>
+</code></pre></div>
 </div>
 </li>
 <li>
