@@ -46,6 +46,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://postgresql-docs.netlify.app/14/release-notes-v14.1.upd.html</loc>
+         <lastmod>2021-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://postgresql-docs.netlify.app/14/release-notes.html</loc>
          <lastmod>2021-12-02</lastmod>
          <changefreq>daily</changefreq>
