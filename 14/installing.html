@@ -1009,7 +1009,7 @@ $ sudo yum repolist
 <p>Some extensions require additional setup in order to use them with Percona Distribution for PostgreSQL. For more information, refer to <a href="#enabling-extensions">Enabling extensions</a>.</p>
 <h4 id="starting-the-service_1">Starting the service<a class="headerlink" href="#starting-the-service_1" title="Permanent link">&para;</a></h4>
 <p>After the installation, the default database storage is not automatically initialized. To complete the installation and start Percona Distribution for PostgreSQL, initialize the database using the following command:</p>
-<div class="highlight"><pre><span></span><code>/usr/pgsql-13/bin/postgresql-14-setup initdb
+<div class="highlight"><pre><span></span><code>/usr/pgsql-14/bin/postgresql-14-setup initdb
 </code></pre></div>
 <p>Start the PostgreSQL service:</p>
 <div class="highlight"><pre><span></span><code>$ sudo systemctl start postgresql-14
@@ -1067,7 +1067,7 @@ log_error_verbosity = default
 </code></pre></div>
 <p>For details about each option, see <a href="https://github.com/darold/pgbadger/#POSTGRESQL-CONFIGURATION">pdBadger documentation</a>.</p>
 <p><strong>pgAudit set-user</strong></p>
-<p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/13/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
+<p>Add the <code>set-user</code> to <code>shared_preload_libraries</code> in <code>postgresql.conf</code>. The recommended way is to use the <a href="https://www.postgresql.org/docs/14/sql-altersystem.html">ALTER SYSTEM</a> command. <a href="#connect-to-the-postgresql-server">Connect to psql</a> and use the following command:</p>
 <div class="highlight"><pre><span></span><code>$ ALTER SYSTEM SET shared_preload_libraries = &#39;set-user&#39;;
 </code></pre></div>
 <p>Start / restart the server to apply the configuration.</p>
@@ -1098,7 +1098,7 @@ log_error_verbosity = default
   <small>
     
       Last update:
-      2021-11-22
+      2021-12-16
     
   </small>
 </div>

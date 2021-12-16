@@ -733,12 +733,12 @@ or Ubuntu, complete the following steps.</p>
 </li>
 <li>
 <p>Remove the <strong>percona-postgresql</strong> packages.</p>
-<div class="highlight"><pre><span></span><code>$ sudo apt remove percona-postgresql-13* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
+<div class="highlight"><pre><span></span><code>$ sudo apt remove percona-postgresql-14* percona-patroni percona-pgbackrest  percona-pgbadger percona-pgbouncer
 </code></pre></div>
 </li>
 <li>
 <p>Remove configuration and data files.</p>
-<div class="highlight"><pre><span></span><code>$ rm -rf /etc/postgresql/13/main
+<div class="highlight"><pre><span></span><code>$ rm -rf /etc/postgresql/14/main
 </code></pre></div>
 </li>
 </ol>
@@ -749,17 +749,17 @@ Red Hat Enterprise Linux or CentOS, complete the following steps.</p>
 <ol>
 <li>
 <p>Stop the Percona Distribution for PostgreSQL service.</p>
-<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-13
+<div class="highlight"><pre><span></span><code>$ sudo systemctl stop postgresql-14
 </code></pre></div>
 </li>
 <li>
 <p>Remove the <strong>percona-postgresql</strong> packages</p>
-<div class="highlight"><pre><span></span><code>$ sudo yum remove percona-postgresql13* percona-pgbadger
+<div class="highlight"><pre><span></span><code>$ sudo yum remove percona-postgresql14* percona-pgbadger
 </code></pre></div>
 </li>
 <li>
 <p>Remove configuration and data files</p>
-<div class="highlight"><pre><span></span><code>$ rm -rf /var/lib/pgsql/13/data
+<div class="highlight"><pre><span></span><code>$ rm -rf /var/lib/pgsql/14/data
 </code></pre></div>
 </li>
 </ol>
@@ -769,7 +769,7 @@ Red Hat Enterprise Linux or CentOS, complete the following steps.</p>
   <small>
     
       Last update:
-      2021-11-22
+      2021-12-16
     
   </small>
 </div>
