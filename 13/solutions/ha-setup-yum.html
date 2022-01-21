@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://postgresql-docs.netlify.app/13/solutions/ha-setup-yum.html">
       
       <link rel="icon" href="../_images/percona-favicon.ico">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.2">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
@@ -23,7 +23,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.f7951f6f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.cd566b2a.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
@@ -68,7 +68,7 @@
   
     
     
-      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)</script>
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -562,6 +562,55 @@
     <li class="md-nav__item">
       <a href="ha-test.html" class="md-nav__link">
         Testing the Patroni PostgreSQL Cluster
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+      
+      
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="backup-recovery.html">Backup and disaster recovery</a>
+          
+        </div>
+      
+      <nav class="md-nav" aria-label="Backup and disaster recovery" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Backup and disaster recovery
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
+        Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
       </a>
     </li>
   
@@ -1129,77 +1178,77 @@ vim /etc/patroni/patroni.yml
 </li>
 <li>
 <p>Specify the following configuration:</p>
-<div class="highlight"><pre><span></span><code><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-<span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/pg_cluster/</span>
-<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">node1</span>
+<div class="highlight"><pre><span></span><code><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/pg_cluster/</span><span class="w"></span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1</span><span class="w"></span>
 
-<span class="nt">restapi</span><span class="p">:</span>
-  <span class="nt">listen</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.104.0.7:8008</span>            <span class="c1"># PostgreSQL node IP address</span>
-  <span class="nt">connect_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.104.0.7:8008</span>   <span class="c1"># PostgreSQL node IP address</span>
+<span class="nt">restapi</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.7:8008</span><span class="w">            </span><span class="c1"># PostgreSQL node IP address</span><span class="w"></span>
+<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.7:8008</span><span class="w">   </span><span class="c1"># PostgreSQL node IP address</span><span class="w"></span>
 
-<span class="nt">etcd</span><span class="p">:</span>
-  <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.104.0.5:2379</span>  <span class="c1"># ETCD node IP address</span>
+<span class="nt">etcd</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">host</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.5:2379</span><span class="w">  </span><span class="c1"># ETCD node IP address</span><span class="w"></span>
 
-<span class="nt">bootstrap</span><span class="p">:</span>
-  <span class="c1"># this section will be written into Etcd:/&lt;namespace&gt;/&lt;scope&gt;/config after initializing new cluster</span>
-  <span class="nt">dcs</span><span class="p">:</span>
-    <span class="nt">ttl</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">30</span>
-    <span class="nt">loop_wait</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-    <span class="nt">retry_timeout</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10</span>
-    <span class="nt">maximum_lag_on_failover</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1048576</span>
-    <span class="nt">postgresql</span><span class="p">:</span>
-      <span class="nt">use_pg_rewind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class="nt">use_slots</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-      <span class="nt">parameters</span><span class="p">:</span>
-        <span class="nt">wal_level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replica</span>
-        <span class="nt">hot_standby</span><span class="p">:</span> <span class="s">&quot;on&quot;</span>
-        <span class="nt">logging_collector</span><span class="p">:</span> <span class="s">&#39;on&#39;</span>
-        <span class="nt">max_wal_senders</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-        <span class="nt">max_replication_slots</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-        <span class="nt">wal_log_hints</span><span class="p">:</span> <span class="s">&quot;on&quot;</span>
+<span class="nt">bootstrap</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="c1"># this section will be written into Etcd:/&lt;namespace&gt;/&lt;scope&gt;/config after initializing new cluster</span><span class="w"></span>
+<span class="w">  </span><span class="nt">dcs</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ttl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
+<span class="w">    </span><span class="nt">loop_wait</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="w">    </span><span class="nt">retry_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="w">    </span><span class="nt">maximum_lag_on_failover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1048576</span><span class="w"></span>
+<span class="w">    </span><span class="nt">postgresql</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">use_pg_rewind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">      </span><span class="nt">use_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"></span>
+<span class="w">      </span><span class="nt">parameters</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="nt">wal_level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replica</span><span class="w"></span>
+<span class="w">        </span><span class="nt">hot_standby</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">logging_collector</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;on&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="nt">max_wal_senders</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<span class="w">        </span><span class="nt">max_replication_slots</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<span class="w">        </span><span class="nt">wal_log_hints</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;on&quot;</span><span class="w"></span>
 
-  <span class="c1"># some desired options for &#39;initdb&#39;</span>
-  <span class="nt">initdb</span><span class="p">:</span>  <span class="c1"># Note: It needs to be a list (some options need values, others are switches)</span>
-  <span class="p p-Indicator">-</span> <span class="nt">encoding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">UTF8</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">data-checksums</span>
+<span class="w">  </span><span class="c1"># some desired options for &#39;initdb&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="nt">initdb</span><span class="p">:</span><span class="w">  </span><span class="c1"># Note: It needs to be a list (some options need values, others are switches)</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">encoding</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">UTF8</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-checksums</span><span class="w"></span>
 
-  <span class="nt">pg_hba</span><span class="p">:</span>  <span class="c1"># Add following lines to pg_hba.conf after running &#39;initdb&#39;</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">host replication replicator 127.0.0.1/32 md5</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">host replication replicator 10.104.0.2/32 md5</span>  
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">host replication replicator 10.104.0.8/32 md5</span> 
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">host replication replicator 10.104.0.7/32 md5</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">host all all 0.0.0.0/0 md5</span>
-<span class="c1">#  - hostssl all all 0.0.0.0/0 md5</span>
+<span class="w">  </span><span class="nt">pg_hba</span><span class="p">:</span><span class="w">  </span><span class="c1"># Add following lines to pg_hba.conf after running &#39;initdb&#39;</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 127.0.0.1/32 md5</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 10.104.0.2/32 md5</span><span class="w">  </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 10.104.0.8/32 md5</span><span class="w"> </span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host replication replicator 10.104.0.7/32 md5</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">host all all 0.0.0.0/0 md5</span><span class="w"></span>
+<span class="c1">#  - hostssl all all 0.0.0.0/0 md5</span><span class="w"></span>
 
-  <span class="c1"># Some additional users users which needs to be created after initializing new cluster</span>
-  <span class="nt">users</span><span class="p">:</span>
-    <span class="nt">admin</span><span class="p">:</span>
-      <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">admin</span>
-      <span class="nt">options</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">createrole</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">createdb</span>
+<span class="w">  </span><span class="c1"># Some additional users users which needs to be created after initializing new cluster</span><span class="w"></span>
+<span class="w">  </span><span class="nt">users</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">admin</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">admin</span><span class="w"></span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createrole</span><span class="w"></span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">createdb</span><span class="w"></span>
 
-<span class="nt">postgresql</span><span class="p">:</span>
-  <span class="nt">listen</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.104.0.7:5432</span>            <span class="c1"># PostgreSQL node IP address</span>
-  <span class="nt">connect_address</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10.104.0.7:5432</span>   <span class="c1"># PostgreSQL node IP address</span>
-  <span class="nt">data_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/data/patroni</span>            <span class="c1"># The datadir you created</span>
-  <span class="nt">bin_dir</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/usr/pgsql-13/bin</span>
-  <span class="nt">pgpass</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">/tmp/pgpass0</span>
-  <span class="nt">authentication</span><span class="p">:</span>
-    <span class="nt">replication</span><span class="p">:</span>
-      <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replicator</span>
-      <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">replicator</span>
-    <span class="nt">superuser</span><span class="p">:</span>
-      <span class="nt">username</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-      <span class="nt">password</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">postgres</span>
-  <span class="nt">parameters</span><span class="p">:</span>
-    <span class="nt">unix_socket_directories</span><span class="p">:</span> <span class="s">&#39;.&#39;</span>
+<span class="nt">postgresql</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">listen</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.7:5432</span><span class="w">            </span><span class="c1"># PostgreSQL node IP address</span><span class="w"></span>
+<span class="w">  </span><span class="nt">connect_address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10.104.0.7:5432</span><span class="w">   </span><span class="c1"># PostgreSQL node IP address</span><span class="w"></span>
+<span class="w">  </span><span class="nt">data_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/data/patroni</span><span class="w">            </span><span class="c1"># The datadir you created</span><span class="w"></span>
+<span class="w">  </span><span class="nt">bin_dir</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/usr/pgsql-13/bin</span><span class="w"></span>
+<span class="w">  </span><span class="nt">pgpass</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/tmp/pgpass0</span><span class="w"></span>
+<span class="w">  </span><span class="nt">authentication</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">replication</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replicator</span><span class="w"></span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">replicator</span><span class="w"></span>
+<span class="w">    </span><span class="nt">superuser</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="w">      </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span><span class="w"></span>
+<span class="w">  </span><span class="nt">parameters</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">unix_socket_directories</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;.&#39;</span><span class="w"></span>
 
-<span class="nt">tags</span><span class="p">:</span>
-    <span class="nt">nofailover</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">noloadbalance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">clonefrom</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-    <span class="nt">nosync</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="nt">tags</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">nofailover</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">noloadbalance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">clonefrom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
+<span class="w">    </span><span class="nt">nosync</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"></span>
 </code></pre></div>
 </li>
 <li>
@@ -1210,33 +1259,33 @@ vim /etc/patroni/patroni.yml
 <div class="highlight"><pre><span></span><code>sudo vim /etc/systemd/system/patroni.service
 </code></pre></div>
 <p>Add the following contents in the file:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span>
-<span class="na">Description</span><span class="o">=</span><span class="s">Runners to orchestrate a high-availability PostgreSQL</span>
-<span class="na">After</span><span class="o">=</span><span class="s">syslog.target network.target</span>
+<div class="highlight"><pre><span></span><code><span class="k">[Unit]</span><span class="w"></span>
+<span class="na">Description</span><span class="o">=</span><span class="s">Runners to orchestrate a high-availability PostgreSQL</span><span class="w"></span>
+<span class="na">After</span><span class="o">=</span><span class="s">syslog.target network.target</span><span class="w"></span>
 
-<span class="k">[Service]</span>
-<span class="na">Type</span><span class="o">=</span><span class="s">simple</span>
+<span class="k">[Service]</span><span class="w"></span>
+<span class="na">Type</span><span class="o">=</span><span class="s">simple</span><span class="w"></span>
 
-<span class="na">User</span><span class="o">=</span><span class="s">postgres</span>
-<span class="na">Group</span><span class="o">=</span><span class="s">postgres</span>
+<span class="na">User</span><span class="o">=</span><span class="s">postgres</span><span class="w"></span>
+<span class="na">Group</span><span class="o">=</span><span class="s">postgres</span><span class="w"></span>
 
-<span class="c1"># Start the patroni process</span>
-<span class="na">ExecStart</span><span class="o">=</span><span class="s">/bin/patroni /etc/patroni/patroni.yml</span>
+<span class="c1"># Start the patroni process</span><span class="w"></span>
+<span class="na">ExecStart</span><span class="o">=</span><span class="s">/bin/patroni /etc/patroni/patroni.yml</span><span class="w"></span>
 
-<span class="c1"># Send HUP to reload from patroni.yml</span>
-<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -s HUP $MAINPID</span>
+<span class="c1"># Send HUP to reload from patroni.yml</span><span class="w"></span>
+<span class="na">ExecReload</span><span class="o">=</span><span class="s">/bin/kill -s HUP $MAINPID</span><span class="w"></span>
 
-<span class="c1"># only kill the patroni process, not its children, so it will gracefully stop postgres</span>
-<span class="na">KillMode</span><span class="o">=</span><span class="s">process</span>
+<span class="c1"># only kill the patroni process, not its children, so it will gracefully stop postgres</span><span class="w"></span>
+<span class="na">KillMode</span><span class="o">=</span><span class="s">process</span><span class="w"></span>
 
-<span class="c1"># Give a reasonable amount of time for the server to start up/shut down</span>
-<span class="na">TimeoutSec</span><span class="o">=</span><span class="s">30</span>
+<span class="c1"># Give a reasonable amount of time for the server to start up/shut down</span><span class="w"></span>
+<span class="na">TimeoutSec</span><span class="o">=</span><span class="s">30</span><span class="w"></span>
 
-<span class="c1"># Do not restart the service if it crashes, we want to manually inspect database on failure</span>
-<span class="na">Restart</span><span class="o">=</span><span class="s">no</span>
+<span class="c1"># Do not restart the service if it crashes, we want to manually inspect database on failure</span><span class="w"></span>
+<span class="na">Restart</span><span class="o">=</span><span class="s">no</span><span class="w"></span>
 
-<span class="k">[Install]</span>
-<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span>
+<span class="k">[Install]</span><span class="w"></span>
+<span class="na">WantedBy</span><span class="o">=</span><span class="s">multi-user.target</span><span class="w"></span>
 </code></pre></div>
 </li>
 <li>
@@ -1471,10 +1520,10 @@ listen standbys
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.0bbba5b5.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.649a939e.min.js"></script>
+      <script src="../assets/javascripts/bundle.01de222e.min.js"></script>
       
         <script src="../js/version-select.js"></script>
       
