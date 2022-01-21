@@ -12,21 +12,21 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://postgresql-docs.netlify.app/14/index.html">
+        <link rel="canonical" href="https://postgresql-docs.netlify.app/14/solutions/backup-recovery.html">
       
-      <link rel="icon" href="_images/percona-favicon.ico">
+      <link rel="icon" href="../_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.7">
     
     
       
-        <title>Percona Distribution for PostgreSQL</title>
+        <title>Backup and disaster recovery - Percona Distribution for PostgreSQL</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.cd566b2a.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.cd566b2a.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.e6a45f82.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.e6a45f82.min.css">
         
       
     
@@ -44,9 +44,9 @@
     
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
     
-      <link rel="stylesheet" href="css/percona.css">
+      <link rel="stylesheet" href="../css/percona.css">
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-14-documentation" class="md-skip">
+        <a href="#backup-and-disaster-recovery-in-percona-distribution-for-postgresql" class="md-skip">
           Skip to content
         </a>
       
@@ -94,9 +94,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="index.html" title="Percona Distribution for PostgreSQL" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+    <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-header__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="_images/percona-logo.png" alt="logo">
+  <img src="../_images/percona-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -112,7 +112,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 14 Documentation
+              Backup and disaster recovery
             
           </span>
         </div>
@@ -213,9 +213,9 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
+    <a href="../index.html" title="Percona Distribution for PostgreSQL" class="md-nav__button md-logo" aria-label="Percona Distribution for PostgreSQL" data-md-component="logo">
       
-  <img src="_images/percona-logo.png" alt="logo">
+  <img src="../_images/percona-logo.png" alt="logo">
 
     </a>
     Percona Distribution for PostgreSQL
@@ -241,89 +241,11 @@
 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Percona Distribution for PostgreSQL 14 Documentation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="index.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14 Documentation
       </a>
-      
-        
-
-  
-
-<nav class="md-nav md-nav--secondary" aria-label="On this page">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      On this page
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#installation-and-upgrade" class="md-nav__link">
-    Installation and Upgrade
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
-    Extensions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#solutions" class="md-nav__link">
-    Solutions
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#uninstall" class="md-nav__link">
-    Uninstall
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#release-notes" class="md-nav__link">
-    Release Notes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference" class="md-nav__link">
-    Reference
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -347,7 +269,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="installation-and-update.html">Installation and Upgrade</a>
+          <a href="../installation-and-update.html">Installation and Upgrade</a>
           
             <label for="__nav_2">
               <span class="md-nav__icon md-icon"></span>
@@ -368,7 +290,7 @@
   
   
     <li class="md-nav__item">
-      <a href="installing.html" class="md-nav__link">
+      <a href="../installing.html" class="md-nav__link">
         Installing Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -382,7 +304,7 @@
   
   
     <li class="md-nav__item">
-      <a href="major-upgrade.html" class="md-nav__link">
+      <a href="../major-upgrade.html" class="md-nav__link">
         Upgrading Percona Distribution for PostgreSQL from 13 to 14
       </a>
     </li>
@@ -396,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="minor-upgrade.html" class="md-nav__link">
+      <a href="../minor-upgrade.html" class="md-nav__link">
         Minor Upgrade of Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -429,7 +351,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="extensions.html">Extensions</a>
+          <a href="../extensions.html">Extensions</a>
           
         </div>
       
@@ -446,7 +368,7 @@
   
   
     <li class="md-nav__item">
-      <a href="pg-stat-monitor.html" class="md-nav__link">
+      <a href="../pg-stat-monitor.html" class="md-nav__link">
         pg_stat_monitor
       </a>
     </li>
@@ -466,12 +388,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
       
       
       
@@ -505,7 +429,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="solutions/high-availability.html">High availability</a>
+          <a href="high-availability.html">High availability</a>
           
             <label for="__nav_4_1">
               <span class="md-nav__icon md-icon"></span>
@@ -526,7 +450,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-setup-apt.html" class="md-nav__link">
+      <a href="ha-setup-apt.html" class="md-nav__link">
         Deploying on Debian or Ubuntu
       </a>
     </li>
@@ -540,7 +464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-setup-yum.html" class="md-nav__link">
+      <a href="ha-setup-yum.html" class="md-nav__link">
         Deploying on RHEL or CentOS
       </a>
     </li>
@@ -554,7 +478,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/ha-test.html" class="md-nav__link">
+      <a href="ha-test.html" class="md-nav__link">
         Testing the Patroni PostgreSQL Cluster
       </a>
     </li>
@@ -573,20 +497,22 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
       
       
       
       
         
         
-        <div class="md-nav__link md-nav__link--index ">
-          <a href="solutions/backup-recovery.html">Backup and disaster recovery</a>
+        <div class="md-nav__link md-nav__link--index md-nav__link--active">
+          <a href="backup-recovery.html">Backup and disaster recovery</a>
           
         </div>
       
@@ -603,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="solutions/dr-pgbackrest-setup.html" class="md-nav__link">
+      <a href="dr-pgbackrest-setup.html" class="md-nav__link">
         Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
       </a>
     </li>
@@ -632,7 +558,7 @@
   
   
     <li class="md-nav__item">
-      <a href="uninstalling.html" class="md-nav__link">
+      <a href="../uninstalling.html" class="md-nav__link">
         Uninstall
       </a>
     </li>
@@ -658,7 +584,7 @@
         
         
         <div class="md-nav__link md-nav__link--index ">
-          <a href="release-notes.html">Release Notes</a>
+          <a href="../release-notes.html">Release Notes</a>
           
             <label for="__nav_6">
               <span class="md-nav__icon md-icon"></span>
@@ -679,7 +605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.1.upd2.html" class="md-nav__link">
+      <a href="../release-notes-v14.1.upd2.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.1 Second Update
       </a>
     </li>
@@ -693,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.1.upd.html" class="md-nav__link">
+      <a href="../release-notes-v14.1.upd.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.1 Update
       </a>
     </li>
@@ -707,7 +633,7 @@
   
   
     <li class="md-nav__item">
-      <a href="release-notes-v14.1.html" class="md-nav__link">
+      <a href="../release-notes-v14.1.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 14.1
       </a>
     </li>
@@ -729,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="licensing.html" class="md-nav__link">
+      <a href="../licensing.html" class="md-nav__link">
         Licensing
       </a>
     </li>
@@ -765,44 +691,62 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#installation-and-upgrade" class="md-nav__link">
-    Installation and Upgrade
+  <a href="#overview" class="md-nav__link">
+    Overview
   </a>
+  
+    <nav class="md-nav" aria-label="Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pgbackrest" class="md-nav__link">
+    pgBackRest
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extensions" class="md-nav__link">
-    Extensions
+  <a href="#setup-overview" class="md-nav__link">
+    Setup overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Setup overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#system-architecture" class="md-nav__link">
+    System architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="System architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#components" class="md-nav__link">
+    Components:
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#solutions" class="md-nav__link">
-    Solutions
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#uninstall" class="md-nav__link">
-    Uninstall
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#release-notes" class="md-nav__link">
-    Release Notes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reference" class="md-nav__link">
-    Reference
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -818,111 +762,115 @@
             <article class="md-content__inner md-typeset">
               
                 
-<a href="https://github.com/percona/postgresql-docs/edit/14/docs/index.md" title="Edit this page" class="md-content__button md-icon">
+<a href="https://github.com/percona/postgresql-docs/edit/14/docs/solutions/backup-recovery.md" title="Edit this page" class="md-content__button md-icon">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
 </a>
 
 
-<h1 id="percona-distribution-for-postgresql-14-documentation">Percona Distribution for PostgreSQL 14 Documentation<a class="headerlink" href="#percona-distribution-for-postgresql-14-documentation" title="Permanent link">&para;</a></h1>
-<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing your PostgreSQL
-database system: it installs PostgreSQL and complements it by a selection of
-extensions that enable solving essential practical tasks efficiently:</p>
+<h1 id="backup-and-disaster-recovery-in-percona-distribution-for-postgresql">Backup and disaster recovery in Percona Distribution for PostgreSQL<a class="headerlink" href="#backup-and-disaster-recovery-in-percona-distribution-for-postgresql" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>A Disaster Recovery (DR) solution ensures that a system can be quickly restored to a normal operational state if something unexpected happens. When operating a database, you would back up the data as frequently as possible and have a mechanism to restore that data when needed. Disaster Recovery is often mistaken for high availability (HA), but they are two different concepts altogether:</p>
 <ul>
-<li>
-<p><a href="https://github.com/reorg/pg_repack">pg_repack</a> rebuilds
-PostgreSQL database objects</p>
-</li>
-<li>
-<p><a href="https://www.pgaudit.org/">pgAudit</a> provides detailed session or object
-audit logging via the standard PostgreSQL logging facility</p>
-</li>
-<li>
-<p><a href="https://github.com/pgaudit/set_user">pgAudit set_user</a> - The <code>set_user</code> part of <code>pgAudit</code> extension provides an additional layer of logging and control when unprivileged users must escalate themselves to superuser or object owner roles in order to perform needed maintenance tasks.</p>
-</li>
-<li>
-<p><a href="https://pgbackrest.org/">pgBackRest</a> is a backup and restore solution for
-PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://patroni.readthedocs.io/en/latest/">Patroni</a> is an HA (High Availability) solution for PostgreSQL.</p>
-</li>
-<li>
-<p><a href="https://github.com/percona/pg_stat_monitor">pg_stat_monitor</a> (Tech Preview Feature <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>) collects and aggregates statistics for PostgreSQL and provides histogram information.</p>
-</li>
-<li>
-<p><a href="https://www.pgbouncer.org/">PgBouncer</a> - a lightweight connection pooler for PostgreSQL</p>
-</li>
-<li>
-<p><a href="https://github.com/darold/pgbadger">pgBadger</a> - a fast PostgreSQL Log Analyzer.</p>
-</li>
-<li>
-<p><a href="https://github.com/eulerto/wal2json">wal2json</a> - a PostgreSQL logical decoding JSON output plugin.</p>
-</li>
-<li>
-<p>A collection of <a href="https://www.postgresql.org/docs/14/contrib.html">additional PostgreSQL contrib extensions</a></p>
-</li>
+<li>High availability ensures guaranteed service levels at all times. This solution involves configuring one or more standby systems to an active database, and the ability to switch seamlessly to that standby when the primary database becomes unavailable, for example, during a power outage or a server crash. To learn more about high-availability solutions with Percona Distribution for PostgreSQL, refer to <a href="high-availability.html">High Availability in PostgreSQL with Patroni</a>.</li>
+<li>Disaster Recovery protects the database instance against accidental or malicious data loss or data corruption. Disaster recovery can be achieved by using either the options provided by PostgreSQL, or external extensions.</li>
 </ul>
-<div class="admonition seealso">
-<p class="admonition-title">Seealso</p>
-<p>Blog Posts</p>
+<p><br></p>
+<details>
+<summary><strong>PostgreSQL disaster recovery options</strong></summary>
+<p><br>
+PostgreSQL offers multiple options for setting up database disaster recovery. </p>
 <ul>
-<li><a href="https://www.percona.com/blog/2019/05/10/pgbackrest-a-great-backup-solution-and-a-wonderful-year-of-growth/">pgBackRest - A Great Backup Solution and a Wonderful Year of
-  Growth</a></li>
-<li><a href="https://www.percona.com/blog/2018/09/21/securing-postgresql-as-an-enterprise-grade-environment/">Securing PostgreSQL as an Enterprise-Grade
-  Environment</a></li>
+<li><strong><a href="https://www.postgresql.org/docs/14/app-pgdump.html">pg_dump</a> or the <a href="https://www.postgresql.org/docs/14/app-pg-dumpall.html">pg_dumpall</a> utilities</strong></li>
 </ul>
+<p>This is the basic backup approach. These tools can generate the backup of one or more PostgreSQL databases (either just the structure, or both the structure and data), then restore them through the <a href="https://www.postgresql.org/docs/14/app-pgrestore.html">pg_restore</a> command. </p>
+<table>
+<thead>
+<tr>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Easy to use</td>
+<td>1. Backup of only one database at a time.<br>2. No incremental backups.<br>3. No point-in-time recovery since the backup is a snapshot in time.<br>4. Performance degradation when the database size is large.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>File-based backup and restore</strong></li>
+</ul>
+<p>This method involves backing up the PostgreSQL data directory to a different location, and restoring it when needed. </p>
+<table>
+<thead>
+<tr>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consistent snapshot of the data directory or the whole data disk volume</td>
+<td>1. Requires stopping PostgreSQL in order to copy the files. This is not practical for most production setups.<br> 2. No backup of individual databases or tables.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>PostgreSQL <a href="https://www.postgresql.org/docs/14/app-pgbasebackup.html">pg_basebackup</a></strong></li>
+</ul>
+<p>This backup tool is provided by PostgreSQL. It is used to back up data when the database instance is running. <code>pgasebackup</code> makes a binary copy of the database cluster files, while making sure the system is put in and out of backup mode automatically. </p>
+<table>
+<thead>
+<tr>
+<th>Advantages</th>
+<th>Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Supports backups when the database is running.<br>2. Supports point-in-time recovery</td>
+<td>1. No incremental backups.<br>2. No backup of individual databases or tables.</td>
+</tr>
+</tbody>
+</table>
+</details>
+<p><br></p>
+<p>To achieve a production grade PostgreSQL disaster recovery solution, you need something that can take full or incremental database backups from a running instance, and restore from those backups at any point in time. Percona Distribution for PostgreSQL is supplied with <a href="#pgbackrest">pgBackRest</a>: a reliable, open-source backup and recovery solution for PostgreSQL.</p>
+<p>This document focuses on the Disaster recovery solution in Percona Distribution for PostgreSQL. The <a href="dr-pg-backrestsetup.md">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial provides guidelines of how to set up and test this solution.</p>
+<h3 id="pgbackrest">pgBackRest<a class="headerlink" href="#pgbackrest" title="Permanent link">&para;</a></h3>
+<p><a href="https://pgbackrest.org/">pgBackRest</a> is an easy-to-use, open-source solution that can reliably back up even the largest of PostgreSQL databases. <code>pgBackRest</code> supports the following backup types:</p>
+<ul>
+<li>full backup - a complete copy of your entire data set.</li>
+<li>differential backup - includes all data that has changed since the last full backup. While this means the backup time is slightly higher, it enables a faster restore.</li>
+<li>incremental backup - only backs up the files that have changed since the last full or differential backup, resulting in a quick backup time. To restore to a point in time, however, you will need to restore each incremental backup in the order they were taken.</li>
+</ul>
+<p>When it comes to restoring, <code>pgBackRest</code> can do a full or a delta restore. A <em>full</em> restore needs an empty PostgreSQL target directory. A <em>delta</em> restore is intelligent enough to recognize already-existing files in the PostgreSQL data directory, and update only the ones the backup contains. </p>
+<p><code>pgBackRest</code> supports remote repository hosting and can even use cloud-based services like AWS S3, Google Cloud Services Cloud Storage, Azure Blob Storage for saving backup files. It supports parallel backup through multi-core processing and compression. By default, backup integrity is verified through checksums, and saved files can be encrypted for enhanced security.</p>
+<p><code>pgBackRest</code> can restore a database to a specific point in time in the past. This is the case where a database is not inaccessible but perhaps contains corrupted data. Using the point-in-time recovery, a database administrator can restore the database to the last known good state.  </p>
+<p>Finally, <code>pgBackRest</code> also supports restoring PostgreSQL databases to a different PostgreSQL instance or a separate data directory.</p>
+<h2 id="setup-overview">Setup overview<a class="headerlink" href="#setup-overview" title="Permanent link">&para;</a></h2>
+<p>This section describes the architecture of the backup and disaster recovery solution. For the configuration steps, refer to the <a href="dr-pg-backrestsetup.md">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a>.</p>
+<h3 id="system-architecture">System architecture<a class="headerlink" href="#system-architecture" title="Permanent link">&para;</a></h3>
+<p>As the configuration example, we will use a three server architecture where <code>pgBackRest</code> resides on a dedicated remote host. The servers communicate with each other via passwordless SSH.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Passwordless SSH may not be an ideal solution for your environment. In this case, consider using other methods, for example, <a href="https://pgbackrest.org/user-guide-rhel.html#repo-host/config">TLS with client certificates</a>.</p>
 </div>
-<p>Percona Distribution for PostgreSQL is also shipped with the
-<a href="https://www.postgresql.org/docs/14/libpq.html">libpq</a> library. It
-contains &ldquo;a set of library functions that allow client programs to pass
-queries to the PostgreSQL backend server and to receive the results of
-these queries.&rdquo; <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></p>
-<h2 id="installation-and-upgrade">Installation and Upgrade<a class="headerlink" href="#installation-and-upgrade" title="Permanent link">&para;</a></h2>
+<p>The following diagram illustrates the architecture layout:</p>
+<p><img alt="pgBackRest implementation architecture" src="../_images/diagrams/DR-architecture.png" /></p>
+<h4 id="components">Components:<a class="headerlink" href="#components" title="Permanent link">&para;</a></h4>
+<p>The architecture consists of three server instances:</p>
 <ul>
-<li><a href="installing.html">Installing Percona Distribution for PostgreSQL</a></li>
-<li><a href="minor-upgrade.html">Minor Upgrade of Percona Distribution for PostgreSQL</a></li>
+<li><code>pg-primary</code> hosts the primary PostgreSQL server. Note that &ldquo;primary&rdquo; here means the main database instance and does not refer to the primary node of a PostgreSQL replication cluster or a HA setup.</li>
+<li><code>pg-repo</code> is the remote backup repository and hosts <code>pgBackRest</code>. It&rsquo;s important to host the backup repository on a physically separate instance, to be accessed when the target goes down. </li>
+<li><code>pg-secondary</code> is the <em>secondary</em> PostgreSQL node. Don&rsquo;t confuse it with a hot standby. &ldquo;Secondary&rdquo; in this context means a PostgreSQL instance that&rsquo;s idle. We will restore the database backup to this instance when the primary PostgreSQL instance goes down. </li>
 </ul>
-<h2 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h2>
-<p><a href="pg-stat-monitor.html">pg_stat_monitor</a></p>
-<h2 id="solutions">Solutions<a class="headerlink" href="#solutions" title="Permanent link">&para;</a></h2>
-<ul>
-<li>
-<p><a href="solutions/high-availability.html">High Availability in PostgreSQL with Patroni</a></p>
-<ul>
-<li><a href="solutions/ha-setup-apt.html">Deploying high-availability on Debian and Ubuntu</a></li>
-<li><a href="solutions/ha-setup-yum.html">Deploying high-availability on RHEL and CentOS</a></li>
-<li><a href="solutions/ha-test.html">Testing the Patroni PostgreSQL Cluster</a></li>
-</ul>
-</li>
-<li>
-<p><a href="solutions/backup-recovery.html">Backup and disaster recovery with pgBackRest</a></p>
-<ul>
-<li><a href="solutions/dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="uninstall">Uninstall<a class="headerlink" href="#uninstall" title="Permanent link">&para;</a></h2>
-<p><a href="uninstalling.html">Uninstalling Percona Distribution for PostgreSQL</a></p>
-<h2 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h2>
-<p><a href="release-notes.html">Release notes</a></p>
-<h2 id="reference">Reference<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
-<p><a href="licensing.html">Licensing</a></p>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Tech Preview Features are not yet ready for enterprise use and are
-not included in support via SLA (Service License Agreement). They are included in this release so
-that users can provide feedback prior to the full release of the
-feature in a future release (or removal of the feature if it is
-deemed not useful). This functionality can change (APIs, CLIs, etc.)
-from tech preview to GA.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p><a href="https://www.postgresql.org/docs/14/libpq.html">https://www.postgresql.org/docs/14/libpq.html</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
-</li>
-</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For simplicity, we use a single-node PostgreSQL instance as the primary database server. In a production scenario, you will use some form of high-availability solution to protect the primary instance. When you are using a high-availability setup, we recommend configuring <code>pgBackRest</code> to back up the hot standby server so the primary node is not unnecessarily loaded.</p>
 </div>
+<h3 id="deployment">Deployment<a class="headerlink" href="#deployment" title="Permanent link">&para;</a></h3>
+<p>Refer to the <a href="dr-pgbackrest-setup.html">Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL</a> tutorial.  </p>
 
   <hr>
 <div class="md-source-file">
@@ -950,15 +898,30 @@ from tech preview to GA.&#160;<a class="footnote-backref" href="#fnref:1" title=
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
+        
+        <a href="ha-test.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Testing the Patroni PostgreSQL Cluster" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Testing the Patroni PostgreSQL Cluster
+            </div>
+          </div>
+        </a>
+      
       
         
-        <a href="installation-and-update.html" class="md-footer__link md-footer__link--next" aria-label="Next: Installation and Upgrade" rel="next">
+        <a href="dr-pgbackrest-setup.html" class="md-footer__link md-footer__link--next" aria-label="Next: Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Installation and Upgrade
+              Deploying backup and disaster recovery solution in Percona Distribution for PostgreSQL
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -992,12 +955,12 @@ from tech preview to GA.&#160;<a class="footnote-backref" href="#fnref:1" title=
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["search.highlight", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "assets/javascripts/workers/search.22074ed6.min.js", "version": {"provider": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["search.highlight", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.22074ed6.min.js", "version": {"provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.01de222e.min.js"></script>
+      <script src="../assets/javascripts/bundle.01de222e.min.js"></script>
       
-        <script src="js/version-select.js"></script>
+        <script src="../js/version-select.js"></script>
       
     
   </body>
