@@ -1128,7 +1128,7 @@
                 <h1 id="pg_stat_monitor">pg_stat_monitor<a class="headerlink" href="#pg_stat_monitor" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This is a technical preview feature and it is subject to further changes.</p>
+<p>This document describes the functionality of pg_stat_monitor 1.0.0.</p>
 </div>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p><code>pg_stat_monitor</code> is a  Query Performance Monitoring
@@ -1152,7 +1152,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <li><a href="#pg_stat_monitor-settings-view"><code>pg_stat_monitor_settings</code></a> view shows available configuration options which you can change. </li>
 </ul>
 <h4 id="pg_stat_monitor-view">pg_stat_monitor view<a class="headerlink" href="#pg_stat_monitor-view" title="Permanent link">&para;</a></h4>
-<p>The <code>pg_stat_monitor</code> view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the <a href="https://github.com/percona/pg_stat_monitor/blob/master/docs/REFERENCE.md"><code>pg_stat_monitor</code> view reference</a>.</p>
+<p>The <code>pg_stat_monitor</code> view contains all the statistics collected and aggregated by the extension. This view contains one row for each distinct combination of metrics and whether it is a top-level statement or not (up to the maximum number of distinct statements that the module can track). For details about available metrics, refer to the <a href="https://percona.github.io/pg_stat_monitor/main/REFERENCE.html"><code>pg_stat_monitor</code> view reference</a>.</p>
 <p>The following are the primary keys for pg_stat_monitor:</p>
 <ul>
 <li><code>bucket</code>,</li>
@@ -1167,7 +1167,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
 <p>The <code>pg_stat_monitor_settings</code> view shows one row per <code>pg_stat_monitor</code> configuration parameter. It displays configuration parameter name, value, default value, description, minimum and maximum values, and whether a restart is required for a change in value to be effective.</p>
 <p>To learn more, see the <a href="#changing-the-configuration">Changing the configuration</a> section.</p>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>This section describes how to install <code>pg_stat_monitor</code> from Percona repositories. To learn about other installation methods, see the <a href="https://github.com/percona/pg_stat_monitor#installation">Installation</a> section in <code>pg_stat_monitor</code> documentation.</p>
+<p>This section describes how to install <code>pg_stat_monitor</code> from Percona repositories. To learn about other installation methods, see the <a href="https://percona.github.io/pg_stat_monitor/main/setup.html#installation-guidelines">Installation</a> section in the <code>pg_stat_monitor</code> documentation.</p>
 <p><strong>Assumptions</strong>:</p>
 <p>We assume that you have <a href="https://www.percona.com/doc/percona-repo-config/installing.html">installed percona-release</a> utility and <a href="installing.html#enable-the-repository">enabled the Percona Distribution for PostgreSQL repository</a></p>
 <p>To install <code>pg_stat_monitor</code>, run the following command:</p>
@@ -1240,7 +1240,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
  postgres | postgres | SELECT c.relchecks, c.relkind, c.relhasindex, c.r |     1 | 127.0.0.1
  postgres | postgres | SELECT  userid,  total_time, min_time, max_time,  |     1 | 127.0.0.1
 </code></pre></div>
-<p>Find more usage examples in the <a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md">pg_stat_monitor User Guide</a>.</p>
+<p>Find more usage examples in the <a href="https://percona.github.io/pg_stat_monitor/main/USER_GUIDE.html#usage-examples">pg_stat_monitor User Guide</a>.</p>
 <h2 id="changing-the-configuration">Changing the configuration<a class="headerlink" href="#changing-the-configuration" title="Permanent link">&para;</a></h2>
 <p>Run the following query to list available configuration parameters.</p>
 <div class="highlight"><pre><span></span><code>$ SELECT name,description FROM pg_stat_monitor_settings;
@@ -1263,7 +1263,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
  pg_stat_monitor.pgsm_enable_query_plan        | Enable/Disable query plan monitoring
  pg_stat_monitor.pgsm_track_planning           | Selects whether planning statistics are tracked.
 </code></pre></div>
-<p>You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the <a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/docs/USER_GUIDE.md#configuration">configuration section</a> of the <code>pg_stat_monitor</code> documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.</p>
+<p>You can change a parameter by setting a new value in the configuration file. Some parameters require server restart to apply a new value. For others, configuration reload is enough. Refer to the <a href="https://percona.github.io/pg_stat_monitor/main/USER_GUIDE.html#configuration">configuration section</a> of the <code>pg_stat_monitor</code> documentation for the parameters’ description, how you can change their values and if the server restart is required to apply them.</p>
 <p>As an example, let’s set the bucket lifetime from default 60 seconds to 100 seconds. Use the <strong>ALTER SYSTEM</strong> command:</p>
 <div class="highlight"><pre><span></span><code>$ ALTER SYSTEM set pg_stat_monitor.pgsm_bucket_time = 100;
 </code></pre></div>
@@ -1287,10 +1287,11 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
   ----------------------------------+-------
    pg_stat_monitor.pgsm_bucket_time |   100
 </code></pre></div>
-<div class="admonition see">
-<p class="admonition-title">see also</p>
+<div class="admonition seealso">
+<p class="admonition-title">Seealso</p>
+<p><a href="https://percona.github.io/pg_stat_monitor/main/index.html"><code>pg_stat_monitor</code> Documentation</a></p>
+<p>Percona Blog:</p>
 <ul>
-<li><a href="https://github.com/percona/pg_stat_monitor/blob/REL0_9_0_STABLE/README.md">pg_stat_monitor Documentation</a></li>
 <li><a href="https://www.percona.com/blog/2021/01/19/pg_stat_monitor-a-new-way-of-looking-at-postgresql-metrics/">pg_stat_monitor: A New Way Of Looking At PostgreSQL Metrics</a></li>
 <li><a href="https://www.percona.com/blog/improve-postgresql-query-performance-insights-with-pg_stat_monitor/">Improve PostgreSQL Query Performance Insights with pg_stat_monitor</a></li>
 </ul>
@@ -1316,7 +1317,7 @@ tool for PostgreSQL. It collects various statistics data such as query statistic
   <small>
     
       Last update:
-      2021-11-24
+      2022-04-01
     
   </small>
 </div>
