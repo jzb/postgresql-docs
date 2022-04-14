@@ -15,14 +15,14 @@
         <meta name="author" content="Percona LLC">
       
       
-        <link rel="canonical" href="https://docs.percona.com/postgresql/13/index.html/13/release-notes-v13.2.upd4.html">
+        <link rel="canonical" href="https://docs.percona.com/postgresql/13/index.html/13/release-notes-v13.6.upd.html">
       
       <link rel="icon" href="_images/percona-favicon.ico">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
     
     
       
-        <title>Percona Distribution for PostgreSQL 13.2 Fourth Update - Percona Distribution for PostgreSQL</title>
+        <title>Percona Distribution for PostgreSQL 13.6 Update - Percona Distribution for PostgreSQL</title>
       
     
     
@@ -90,7 +90,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#percona-distribution-for-postgresql-132-fourth-update" class="md-skip">
+        <a href="#percona-distribution-for-postgresql-136-update" class="md-skip">
           Skip to content
         </a>
       
@@ -126,7 +126,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Percona Distribution for PostgreSQL 13.2 Fourth Update
+              Percona Distribution for PostgreSQL 13.6 Update
             
           </span>
         </div>
@@ -622,11 +622,21 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="release-notes-v13.6.upd.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="release-notes-v13.6.upd.html" class="md-nav__link md-nav__link--active">
         Percona Distribution for PostgreSQL 13.6 Update
       </a>
+      
     </li>
   
 
@@ -776,21 +786,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="release-notes-v13.2.upd4.html" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="release-notes-v13.2.upd4.html" class="md-nav__link">
         Percona Distribution for PostgreSQL 13.2 Fourth Update
       </a>
-      
     </li>
   
 
@@ -941,7 +941,7 @@
                 <!-- Edit button -->
                 
                   <a
-                    href="https://github.com/percona/postgresql-docs/edit/13/docs/release-notes-v13.2.upd4.md"
+                    href="https://github.com/percona/postgresql-docs/edit/13/docs/release-notes-v13.6.upd.md"
                     title="Edit this page"
                     class="md-content__button md-icon"
                   >
@@ -957,7 +957,7 @@
                 
 
                 <!-- Markdown content -->
-                <h1 id="percona-distribution-for-postgresql-132-fourth-update">Percona Distribution for PostgreSQL 13.2 Fourth Update<a class="headerlink" href="#percona-distribution-for-postgresql-132-fourth-update" title="Permanent link">&para;</a></h1>
+                <h1 id="percona-distribution-for-postgresql-136-update">Percona Distribution for PostgreSQL 13.6 Update<a class="headerlink" href="#percona-distribution-for-postgresql-136-update" title="Permanent link">&para;</a></h1>
 <table class="docutils field-list" frame="void" rules="none">
   <colgroup>
     <col class="field-name">
@@ -966,7 +966,7 @@
   <tbody valign="top">
     <tr class="field-odd field">
       <th class="field-name">Date:</th>
-      <td class="field-body">June 10, 2021</td>
+      <td class="field-body">April 14, 2022</td>
     </tr>
     <tr class="field-even field">
       <th class="field-name">Installation:</th>
@@ -976,9 +976,9 @@
   </tbody>
 </table>
 
-<p>This update of Percona Distribution for PostgreSQL includes <code>llvm</code> packages for  Red Hat Enterprise Linux 8 / CentOS 8. This fixes compatibility issues with LLVM from upstream. To use <code>llvm</code> packages supplied by us, disable the upstream <code>llvm-toolset</code> module before the installation:</p>
-<div class="highlight"><pre><span></span><code>sudo dnf module disable llvm-toolset
-</code></pre></div>
+<p>Percona Distribution for PostgreSQL is a collection of tools to assist you in managing PostgreSQL. Percona Distribution for PostgreSQL installs PostgreSQL and complements it by a selection of extensions that enable solving essential practical tasks efficiently.</p>
+<p>This update of Percona Distribution for PostgreSQL includes <a href="https://percona.github.io/pg_stat_monitor/REL1_0_STABLE/RELEASE_NOTES.html#100-rc2">pg_stat_monitor 1.0.0-rc.2</a> - the new version of the statistics collection tool for PostgreSQL.</p>
+<p>We welcome your feedback on your experience with <code>pg_stat_monitor</code> on our <a href="https://forums.percona.com/c/postgresql/pg-stat-monitor/69">Forum</a> and in the <a href="https://jira.percona.com/projects/DISTPG">public JIRA project</a>.</p>
 
                 
 <div class="md-relbar2__inner md-grid">
@@ -1000,7 +1000,7 @@
   <small>
     
       Last update:
-      2021-06-10
+      2022-04-14
     
   </small>
 </div>
@@ -1023,7 +1023,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="release-notes-v13.3.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Percona Distribution for PostgreSQL 13.3" rel="prev">
+        <a href="release-notes.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release Notes" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -1032,20 +1032,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Percona Distribution for PostgreSQL 13.3
+              Release Notes
             </div>
           </div>
         </a>
       
       
         
-        <a href="release-notes-v13.2.upd3.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 13.2 Third Update" rel="next">
+        <a href="release-notes-v13.6.html" class="md-footer__link md-footer__link--next" aria-label="Next: Percona Distribution for PostgreSQL 13.6" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Percona Distribution for PostgreSQL 13.2 Third Update
+              Percona Distribution for PostgreSQL 13.6
             </div>
           </div>
           <div class="md-footer__button md-icon">
